@@ -1,0 +1,26 @@
+li.nav-item Button {
+    min-width: -webkit-fill-available;
+}
+
+.nav-link:focus,
+.nav-link:hover {
+    color: white !important;
+}
+
+.nav-pills .nav-link.active,
+.nav-pills .show>.nav-link {
+    background-color: #474646;
+}
+
+.nav-pills .nav-link {
+    color: #bfbdbd;
+}
+
+.tabs-button .nav-item button {
+    padding: 5px;
+    width: 190px;
+    border-radius: 10px;
+}
+.tabs-button button.nav-link, .tabs-button button.nav-link:focus, .tabs-button button.nav-link:hover{
+    color: black !important;
+}
