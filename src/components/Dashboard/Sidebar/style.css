@@ -21,6 +21,55 @@ li.nav-item Button {
     width: 190px;
     border-radius: 10px;
 }
-.tabs-button button.nav-link, .tabs-button button.nav-link:focus, .tabs-button button.nav-link:hover{
+
+.tabs-button button.nav-link,
+.tabs-button button.nav-link:focus,
+.tabs-button button.nav-link:hover {
     color: black !important;
+}
+
+.chat-button button.nav-link:focus,
+.chat-button button.nav-link:hover {
+    color: black !important;
+    background-color: #f7f7f7;
+}
+
+.chat-button button.nav-link {
+    color: black;
+    background-color: white;
+    margin: 5px;
+    border-radius: 22px;
+}
+
+#dropdown-custom-components::after,
+#dropdown-custom-components {
+    content: none;
+    background-color: black;
+    width: 40px;
+    height: 40px;
+    padding: 4px;
+    font-size: xx-large;
+    color: #ffffff;
+}
+
+.dropdown-item:focus,
+.dropdown-item:hover {
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    margin: 3px;
+    width: auto;
+}
+
+.chat-field-arrow {
+    background-color: dodgerblue;
+    color: white;
+    position: relative;
+    right: 7%;
+    transform: translateX(-50%);
+    z-index: 999;
+}
+
+.nav-dark-light li{
+    width: 100px;
+    margin: 4px;
 }

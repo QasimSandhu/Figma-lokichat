@@ -1,5 +1,5 @@
 import React from 'react';
-import { Tab, Container, Row, Col, Nav, Image, Tabs } from 'react-bootstrap';
+import { Tab, Container, Row, Col, Nav, Image, Tabs, InputGroup, Dropdown, FormControl } from 'react-bootstrap';
 import './style.css';
 import UkLogo from '../../../assets/images/UK-flag-logo.png';
 import SidebarLogo from '../../../assets/images/login-logo.jpg';
@@ -41,12 +41,13 @@ const Sidebar = () => {
                                         <Nav.Link eventKey="coding" className="d-flex align-items-center">
                                             <i className="bi bi-check rounded-1 me-3 text-center" style={{
                                                 backgroundColor: 'red', border: '1px solid #bfbdbd', color: 'red', width: '17px', height: '17px', display: 'inline-block'
-                                            }}
-                                            ></i>
-                                            Coding
+                                            }}></i>Coding
                                         </Nav.Link>
                                     </Nav.Item>
-
+                                    <Tabs defaultActiveKey="light" id="tab-example" className='rounded-2 nav-dark-light' style={{ backgroundColor: '#D6D6D6' }}>
+                                        <Tab eventKey="light" title={<span><i class="bi bi-brightness-high-fill"></i> Light</span>} className="bg-light"></Tab>
+                                        <Tab eventKey="dark" title={<span><i class="bi bi-moon"></i> Dark</span>} className="bg-dark text-white"></Tab>
+                                    </Tabs>
                                 </Nav>
                             </Col>
                             {/* <Col sm={9}>
@@ -65,7 +66,7 @@ const Sidebar = () => {
                         <Image src={UkLogo} alt="Circular Image" roundedCircle style={{ padding: '10px', width: '50px', height: '50px' }}
                         />
                     </Col>
-                    <Col lg={12} style={{ backgroundColor: '#f7f7f7' }}>
+                    <Col lg={12} style={{ backgroundColor: '#f7f7f7', paddingBottom: '14rem' }}>
                         <Col lg={12} className='d-flex justify-content-center py-4'>
                             <Col lg={8} className='rounded-2 d-flex justify-content-center py-1 px-1' style={{ backgroundColor: '#d6d6d6' }}>
                                 <Tabs className='tabs-button' defaultActiveKey="lokiChatModel" id="justify-tab-example">
@@ -75,11 +76,33 @@ const Sidebar = () => {
                                 </Tabs>
                             </Col>
                         </Col>
-                        <Col lg={12} className='d-flex justify-content-center'>
-                            <Col lg={11} className='rounded-3 d-flex justify-content-center py-3 px-3' style={{ backgroundColor: '#f0f0f0' }}>
+                        <Row lg={12} className='d-flex justify-content-center' style={{ margin: 0 }}>
+                            <Col lg={11} className='rounded-3 py-3 px-3' style={{ backgroundColor: '#f0f0f0' }}>
                                 <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Distinctio dolores esse exercitationem qui ipsa, earum laboriosam. Similique soluta labore quibusdam. Ab dolore architecto fugiat natus asperiores officiis odio accusamus nemo!</p>
+
+                                <Tabs className='chat-button pb-5' defaultActiveKey="startChat" id="justify-tab-example">
+                                    <Tab eventKey="startChat" title={<span><i class="bi bi-chat-dots"></i> Start Chat</span>}></Tab>
+                                    <Tab eventKey="startDebate" title={<span><i class="bi bi-gear-wide-connected"></i> Start Debate</span>}></Tab>
+                                    <Tab eventKey="photoGeneration" title={<span><i class="bi bi-brilliance"></i> Photo generation</span>}></Tab>
+                                </Tabs>
                             </Col>
-                        </Col>
+                        </Row>
+                    </Col>
+                    <Col className='d-flex justify-content-between py-3 px-4'>
+                        <InputGroup className='d-flex justify-content-between'>
+                            <Dropdown>
+                                <Dropdown.Toggle className='d-flex justify-content-center align-items-center rounded-circle' variant="outline-secondary" id="dropdown-custom-components">+</Dropdown.Toggle>
+                                <Dropdown.Menu>
+                                    <Dropdown.Item eventKey="1"><span><i class="bi bi-translate"></i> Document Translation</span></Dropdown.Item>
+                                    <Dropdown.Item eventKey="2"><span><i class="bi bi-calendar2-check"></i> Summarize Document</span></Dropdown.Item>
+                                    <Dropdown.Item eventKey="3"><span><i class="bi bi-pencil-square"></i> Exam Me</span></Dropdown.Item>
+                                </Dropdown.Menu>
+                            </Dropdown>
+                            <FormControl className='mx-4' placeholder="Type here..." aria-label="Type here..." aria-describedby="basic-addon2" />
+                            <InputGroup.Text className="chat-field-arrow rounded-3 my-2">
+                                <i className="bi bi-arrow-up"></i>
+                            </InputGroup.Text>
+                        </InputGroup>
                     </Col>
                 </Col>
             </Row>
