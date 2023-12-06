@@ -67,7 +67,7 @@ const Signup = () => {
                             <Form>
                                 <Form.Group controlId="formBasicEmail">
                                     <div className="input-group mt-3">
-                                        <span className="input-group-text" style={{ background: '#D9D9D9', width: '30px', textAlign: 'center' }}>
+                                        <span className="input-group-text border-end-0" style={{ background: '#D9D9D9' }}>
                                             <i className="bi bi-person"></i>
                                         </span>
                                         <Form.Control
@@ -75,14 +75,15 @@ const Signup = () => {
                                             placeholder="Please enter your name"
                                             aria-label="Enter email"
                                             aria-describedby="basic-addon1"
-                                            style={{ fontSize: 'small', borderLeft: "none", background: "#D9D9D9", boxShadow: "unset", borderColor: "floralwhite" }}
+                                            className='border-start-0'
+                                            style={{ fontSize: 'small', background: "#D9D9D9", boxShadow: "unset", borderColor: "floralwhite" }}
                                         />
                                     </div>
                                 </Form.Group>
 
                                 <Form.Group controlId="formBasicEmail">
                                     <div className="input-group mt-3">
-                                        <span className="input-group-text" style={{ background: '#D9D9D9', width: '30px', textAlign: 'center' }}>
+                                        <span className="input-group-text border-end-0" style={{ background: '#D9D9D9' }}>
                                             <i className="bi bi-envelope"></i>
                                         </span>
                                         <Form.Control
@@ -90,7 +91,8 @@ const Signup = () => {
                                             placeholder="Type your email"
                                             aria-label="Enter email"
                                             aria-describedby="basic-addon1"
-                                            style={{ fontSize: 'small', borderLeft: "none", background: "#D9D9D9", boxShadow: "unset", borderColor: "floralwhite" }}
+                                            className='border-start-0'
+                                            style={{ fontSize: 'small', background: "#D9D9D9", boxShadow: "unset", borderColor: "floralwhite" }}
                                         />
                                     </div>
                                 </Form.Group>
