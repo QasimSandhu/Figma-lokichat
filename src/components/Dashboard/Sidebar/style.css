@@ -10,10 +10,13 @@ li.nav-item Button {
 .nav-pills .nav-link.active,
 .nav-pills .show>.nav-link {
     background-color: #474646;
+    padding: 4px;
 }
 
 .nav-pills .nav-link {
     color: #bfbdbd;
+    padding: 4px;
+    font-size: smaller;
 }
 
 .tabs-button .nav-item button {
@@ -76,4 +79,26 @@ li.nav-item Button {
 
 .toggle-icon::after {
     display: none;
+}
+
+.profile-dropdown-bg button,
+.profile-dropdown-bg button:hover,
+.profile-dropdown-bg button:active {
+    background-color: inherit !important;
+    padding: 0;
+    border: none;
+}
+
+.profile-dropdown {
+    width: 50px;
+    height: 50px;
+}
+
+.user-profile-dropdown-bg {
+    background-color: dodgerblue;
+}
+
+.user-profile-dropdown-bg-btn a.dropdown-item:focus,
+a.dropdown-item:hover {
+    background-color: inherit;
 }
