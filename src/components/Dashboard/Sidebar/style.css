@@ -102,3 +102,35 @@ li.nav-item Button {
 a.dropdown-item:hover {
     background-color: inherit;
 }
+
+.language-image-active,
+.debate-image-add {
+    padding: 10px;
+    width: 50px;
+    height: 50px;
+}
+
+.language-image-active-icon {
+    position: absolute;
+    top: 43px;
+    left: 51px;
+    color: green;
+    z-index: 1;
+}
+
+.sidebar-button-bg {
+    background-color: #5c5c5c;
+}
+
+.sidebar-user-image {
+    width: 30px;
+    height: 30px;
+}
+
+.sidebar-button-profile-text {
+    font-size: .8rem !important;
+}
+
+.sidebar-button-profile-text-sm{
+    font-size: .6rem !important;
+}

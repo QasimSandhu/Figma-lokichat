@@ -64,11 +64,19 @@ const Sidebar = () => {
         console.log('Link copied:', link);
     };
 
+    // Is Active Language Profile Icon
+    const [selectLanguage, setSelectLanguage] = useState('Spanish');
+
+    const handleLanguageIconActive = (language) => {
+        setSelectLanguage(language);
+    };
+
+
     return (
         <Container fluid >
             <Row className='px-3 py-3' style={{ background: '#141414', height: '100vh' }}>
                 <Col lg={2} className='d-flex flex-column'>
-                    <Tab.Container id="left-tabs-example" defaultActiveKey="first">
+                    <Tab.Container id="left-tabs-example" defaultActiveKey="chats">
                         <Row>
                             <Image src={SidebarLogo} alt="Logo" fluid style={{ padding: '10px', width: '150px', height: '80px' }} />
                         </Row>
@@ -103,42 +111,44 @@ const Sidebar = () => {
                                             }}></i>Coding
                                         </Nav.Link>
                                     </Nav.Item>
-                                    {/* <NavDropdown title={<span><i className="bi bi-chevron-down rounded me-2"></i>Chat list</span>} id="basic-nav-dropdown">
-                                        <NavDropdown.Item eventKey="math">
-                                            <span><i className="bi bi-check rounded me-2"></i>Math</span>
-                                        </NavDropdown.Item>
-                                        <NavDropdown.Item eventKey="architecture">
-                                            <span><i className="bi bi-check rounded me-2"></i>Architecture</span>
-                                        </NavDropdown.Item>
-                                        <NavDropdown.Item eventKey="coding">
-                                            <span><i className="bi bi-check rounded me-2"></i>Coding</span>
-                                        </NavDropdown.Item>
-                                    </NavDropdown> */}
 
-                                    <Tabs defaultActiveKey="light" id="tab-example" className='rounded-2 nav-dark-light' style={{ backgroundColor: '#5c5c5c' }}>
-                                        <Tab eventKey="light" title={<span><i className="bi bi-brightness-high-fill"></i> Light</span>} className="bg-light"></Tab>
-                                        <Tab eventKey="dark" title={<span><i className="bi bi-moon"></i> Dark</span>} className="text-white p-1"></Tab>
-                                    </Tabs>
+                                    <Row className='m-1 ms-0 p-2 rounded-2 sidebar-button-bg col-lg-12'>
+                                        <Col lg={9} className='p-0 d-flex justify-content-start align-items-center'>
+                                            <Image src={UkLogo} alt="Profile Image" roundedCircle className='sidebar-user-image' />
+                                            <p className='mb-0 d-block col-lg-10 d-grid ps-2'>
+                                                <strong className='sidebar-button-profile-text'>Smith Roman</strong><small className='sidebar-button-profile-text-sm'>smithroman@gmail.com</small>
+                                            </p>
+                                            <Button className='px-2 align-items-center btn-sm' style={{ backgroundColor: 'lawngreen' }} onClick={handleNewDebate}>Free</Button>
+                                        </Col>
+                                    </Row>
+
+                                    {/* <Row className='col-lg-12'>
+                                        <Tabs defaultActiveKey="light" id="tab-example" className='rounded-2 nav-dark-light sidebar-button-bg d-flex justify-content-between'>
+                                            <Tab eventKey="light" title={<span><i className="bi bi-brightness-high-fill"></i> Light</span>} className="bg-light"></Tab>
+                                            <Tab eventKey="dark" title={<span><i className="bi bi-moon"></i> Dark</span>} className="text-white p-1"></Tab>
+                                        </Tabs>
+                                    </Row> */}
                                 </Nav>
                             </Col>
                         </Row>
+
                     </Tab.Container>
                 </Col>
                 {/* Right page */}
                 <Col className='rounded-start px-0 border-end border-2 border-black' lg={7} style={{ backgroundColor: 'white' }}>
                     <Col className='d-flex justify-content-between align-items-center py-2 px-4'>
                         <h3>Hello Jack</h3>
-                        <DropdownButton drop='start' key={'start'} className='profile-dropdown-bg' id="profile-dropdown" title={<Image src={UkLogo} alt="Circular Image" roundedCircle style={{ padding: '10px', width: '50px', height: '50px' }} />}>
+                        <DropdownButton drop='down-centered' key={'down-centered'} className='profile-dropdown-bg' id="profile-dropdown" title={<Image src={UkLogo} alt="Circular Image" className='language-image-active' roundedCircle />}>
                             <Dropdown.Item> <h6>Selec Language</h6> </Dropdown.Item>
                             <DropdownDivider className='m-0'></DropdownDivider>
                             <Col className='d-flex justify-content-between'>
-                                <Dropdown.Item>
-                                    <Image src={UkLogo} alt="Circular Image" roundedCircle style={{ padding: '10px', width: '50px', height: '50px' }}
-                                    /><br />English
+                                <Dropdown.Item className='d-grid'>
+                                    <Image src={UkLogo} alt="Circular Image" onClick={() => handleLanguageIconActive('English')} className='border border-1 language-image-active' roundedCircle />
+                                    {selectLanguage === 'English' && <i className="bi bi-check-circle language-image-active-icon"></i>}English
                                 </Dropdown.Item>
-                                <Dropdown.Item>
-                                    <Image src={UkLogo} alt="Circular Image" roundedCircle style={{ padding: '10px', width: '50px', height: '50px' }}
-                                    /><br />Spanish
+                                <Dropdown.Item className='d-grid'>
+                                    <Image src={UkLogo} alt="Circular Image" onClick={() => handleLanguageIconActive('Spanish')} className='border border-1 language-image-active' roundedCircle />
+                                    {selectLanguage === 'Spanish' && <i className="bi bi-check-circle language-image-active-icon"></i>}Spanish
                                 </Dropdown.Item>
                             </Col>
                         </DropdownButton>
@@ -339,18 +349,16 @@ const Sidebar = () => {
                                 </div>
                                 <Form.Label className='px-0 pt-2' style={{ color: 'black' }}>Users added to the chat</Form.Label>
                                 <Col lg={12} className='d-flex justify-content-start align-items-center px-0 pb-1'>
-                                    <Image src={UkLogo} alt="Circular Image" roundedCircle style={{ padding: '10px', width: '50px', height: '50px' }}
-                                    />
-                                    <p className='mb-0 d-block col-lg-10'>
-                                        <strong>Smith Roman</strong><br /><small>smithroman@gmail.com</small>
+                                    <Image src={UkLogo} alt="Circular Image" roundedCircle className='debate-image-add' />
+                                    <p className='mb-0 d-block col-lg-10 d-grid'>
+                                        <strong>Smith Roman</strong><small>smithroman@gmail.com</small>
                                     </p>
                                     <i className="bi bi-x"></i>
                                 </Col>
                                 <Col lg={12} className='d-flex justify-content-start align-items-center px-0 pb-1'>
-                                    <Image src={UkLogo} alt="Circular Image" roundedCircle style={{ padding: '10px', width: '50px', height: '50px' }}
-                                    />
-                                    <p className='mb-0 d-block col-lg-10'>
-                                        <strong>Smith Roman</strong><br /><small>smithroman@gmail.com</small>
+                                    <Image src={UkLogo} alt="Circular Image" roundedCircle className='debate-image-add' />
+                                    <p className='mb-0 d-block col-lg-10 d-grid'>
+                                        <strong>Smith Roman</strong><small>smithroman@gmail.com</small>
                                     </p>
                                     <i className="bi bi-x"></i>
                                 </Col>
@@ -385,6 +393,42 @@ const Sidebar = () => {
                                     </Col>
                                 </Col>
                                 <Button variant="primary border border-variant mt-2" onClick={handleCloseDocument}>Next</Button>
+                            </Row>
+                        </Container>
+                    </Modal.Body>
+                </Modal>
+                {/* Add New Category */}
+                <Modal show={newDebate} centered onHide={handleCloseDebate}>
+                    <Modal.Body>
+                        <Container>
+                            <Row className="mb-3">
+                                <Modal.Title className='pb-3'>Add New Category</Modal.Title>
+                                <Col lg={12} className='d-flex justify-content-between p-0'>
+                                    <Col className="input-group p-1">
+                                        <Form.Label className='px-0 pt-2' style={{ color: 'black' }}>Category Name</Form.Label>
+                                        <div className='input-group'>
+                                            <span className="input-group-text border-end-0" style={{ backgroundColor: 'white' }}>
+                                                <i className="bi bi-chat-right-text"></i>
+                                            </span>
+                                            <Form.Control type="email" className='border border-variant border-start-0' placeholder="Name" aria-label="Email Address" aria-describedby="basic-addon1" style={{ fontSize: 'small', borderLeft: "none", boxShadow: "unset", borderColor: "floralwhite" }} />
+                                        </div>
+                                    </Col>
+                                    <Col className="input-group p-1">
+                                        <Form.Label className='px-0 pt-2' style={{ color: 'black' }}>Color</Form.Label>
+                                        <div className='input-group'>
+                                            <span className="input-group-text border-end-0" style={{ backgroundColor: 'white' }}>
+                                                <i className="bi bi-chat-right-text"></i>
+                                            </span>
+                                            <Form.Control type="email" className='border border-variant border-start-0' placeholder="Name" aria-label="Email Address" aria-describedby="basic-addon1" style={{ fontSize: 'small', borderLeft: "none", boxShadow: "unset", borderColor: "floralwhite" }} />
+                                        </div>
+                                    </Col>
+                                </Col>
+                            </Row>
+                            <Row>
+                                <Col className='d-flex justify-content-end'>
+                                    <Button className='me-2' variant="white border border-variant" onClick={handleCloseDebate}>Cancel</Button>
+                                    <Button variant="primary border border-variant" onClick={handleCloseDebate}>Add Category</Button>
+                                </Col>
                             </Row>
                         </Container>
                     </Modal.Body>
