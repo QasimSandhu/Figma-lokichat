@@ -57,6 +57,17 @@ const Sidebar = () => {
         setAddDocument(false);
     };
 
+    // Set New debate Modal 
+    const [addNewCategory, setAddNewCategory] = useState(false);
+
+    const handleAddNewCategory = () => {
+        setAddNewCategory(true);
+    };
+
+    const handleCloseNewCategory = () => {
+        setAddNewCategory(false);
+    };
+
     // Copy text from input field
     const [link, setLink] = useState('');
 
@@ -116,18 +127,22 @@ const Sidebar = () => {
                                         <Col lg={9} className='p-0 d-flex justify-content-start align-items-center'>
                                             <Image src={UkLogo} alt="Profile Image" roundedCircle className='sidebar-user-image' />
                                             <p className='mb-0 d-block col-lg-10 d-grid ps-2'>
-                                                <strong className='sidebar-button-profile-text'>Smith Roman</strong><small className='sidebar-button-profile-text-sm'>smithroman@gmail.com</small>
+                                                <strong className='sidebar-button-profile-text text-white'>Robert Morine</strong><small className='sidebar-button-profile-text-sm'>robert@lokichat.net</small>
                                             </p>
-                                            <Button className='px-2 align-items-center btn-sm' style={{ backgroundColor: 'lawngreen' }} onClick={handleNewDebate}>Free</Button>
+                                            <Button className='px-2 align-items-center btn-sm' style={{ color: 'black ', backgroundColor: 'lawngreen' }} onClick={handleAddNewCategory}>Free</Button>
+                                        </Col>
+                                        <Col lg={12} className='d-flex justify-content-between px-0 pt-3'>
+                                            <Col lg={6} className='d-grid pe-1'><Button className='p-2 align-items-center btn-sm sidebar-button-bg rounded-3 border border-1' onClick={handleNewDebate}>Track your assets</Button></Col>
+                                            <Col lg={6} className='d-grid ps-1'><Button className='p-2 align-items-center btn-sm sidebar-button-bg rounded-3 border border-1 fs-x-small' onClick={handleNewDebate}>Prompt advisor</Button></Col>
                                         </Col>
                                     </Row>
 
-                                    {/* <Row className='col-lg-12'>
+                                    <Row className='col-lg-12'>
                                         <Tabs defaultActiveKey="light" id="tab-example" className='rounded-2 nav-dark-light sidebar-button-bg d-flex justify-content-between'>
                                             <Tab eventKey="light" title={<span><i className="bi bi-brightness-high-fill"></i> Light</span>} className="bg-light"></Tab>
                                             <Tab eventKey="dark" title={<span><i className="bi bi-moon"></i> Dark</span>} className="text-white p-1"></Tab>
                                         </Tabs>
-                                    </Row> */}
+                                    </Row>
                                 </Nav>
                             </Col>
                         </Row>
@@ -398,7 +413,7 @@ const Sidebar = () => {
                     </Modal.Body>
                 </Modal>
                 {/* Add New Category */}
-                <Modal show={newDebate} centered onHide={handleCloseDebate}>
+                <Modal show={addNewCategory} centered onHide={handleCloseNewCategory}>
                     <Modal.Body>
                         <Container>
                             <Row className="mb-3">
@@ -426,8 +441,8 @@ const Sidebar = () => {
                             </Row>
                             <Row>
                                 <Col className='d-flex justify-content-end'>
-                                    <Button className='me-2' variant="white border border-variant" onClick={handleCloseDebate}>Cancel</Button>
-                                    <Button variant="primary border border-variant" onClick={handleCloseDebate}>Add Category</Button>
+                                    <Button className='me-2' variant="white border border-variant" onClick={handleCloseNewCategory}>Cancel</Button>
+                                    <Button variant="primary border border-variant" onClick={handleCloseNewCategory}>Add Category</Button>
                                 </Col>
                             </Row>
                         </Container>

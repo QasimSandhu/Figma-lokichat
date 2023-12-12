@@ -131,6 +131,15 @@ a.dropdown-item:hover {
     font-size: .8rem !important;
 }
 
-.sidebar-button-profile-text-sm{
+.sidebar-button-profile-text-sm {
     font-size: .6rem !important;
+    color: #D6D6D6;
+}
+
+.sidebar-button-bg,
+.sidebar-button-bg:hover,
+.sidebar-button-bg:active,
+.sidebar-button-bg:focus-visible {
+    background-color: #5c5c5c !important;
+    font-size: x-small;
 }
