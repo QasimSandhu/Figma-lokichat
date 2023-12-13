@@ -137,16 +137,15 @@ const Sidebar = () => {
                                         </Col>
                                     </Row>
 
-                                    <Row className='col-lg-12'>
-                                        <Tabs defaultActiveKey="light" id="tab-example" className='rounded-2 nav-dark-light sidebar-button-bg d-flex justify-content-between'>
-                                            <Tab eventKey="light" title={<span><i className="bi bi-brightness-high-fill"></i> Light</span>} className="bg-light"></Tab>
-                                            <Tab eventKey="dark" title={<span><i className="bi bi-moon"></i> Dark</span>} className="text-white p-1"></Tab>
+                                    <Row className='m-1 ms-0 p-2 rounded-2  sidebar-dark-light-tabs-bg col-lg-12'>
+                                        <Tabs defaultActiveKey="light" id="tab-example" className='rounded-2 nav-dark-light d-flex justify-content-between pe-0 sidebar-dark-light-tabs'>
+                                            <Tab eventKey="light" title={<span><i className="bi bi-brightness-high-fill pe-2"></i> Light</span>} className="bg-light"></Tab>
+                                            <Tab eventKey="dark" title={<span><i className="bi bi-moon pe-2"></i> Dark</span>} className="text-white p-1"></Tab>
                                         </Tabs>
                                     </Row>
                                 </Nav>
                             </Col>
                         </Row>
-
                     </Tab.Container>
                 </Col>
                 {/* Right page */}

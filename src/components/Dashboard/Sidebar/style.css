@@ -74,7 +74,7 @@ li.nav-item Button {
 
 .nav-dark-light li {
     width: 100px;
-    margin: 4px;
+    margin: 1px;
 }
 
 .toggle-icon::after {
@@ -142,4 +142,17 @@ a.dropdown-item:hover {
 .sidebar-button-bg:focus-visible {
     background-color: #5c5c5c !important;
     font-size: x-small;
+}
+
+.sidebar-dark-light-tabs-bg .tab-content {
+    display: none !important;
+}
+
+.sidebar-dark-light-tabs {
+    --bs-nav-tabs-border-width: none;
+}
+
+.sidebar-dark-light-tabs-bg {
+    background-color: #5c5c5c !important;
+    font-size: small;
 }
