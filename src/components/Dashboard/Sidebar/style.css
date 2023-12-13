@@ -7,15 +7,19 @@ li.nav-item Button {
     color: white !important;
 }
 
-.nav-pills .nav-link.active,
-.nav-pills .show>.nav-link {
-    background-color: #474646;
-    padding: 4px;
+.nav-pills {
+    --bs-nav-pills-link-active-bg: #242323;
+}
+
+#navItems.nav-link.active,
+#navItems.show>.nav-link {
+    background-color: inherit;
+    padding: 7px;
 }
 
 .nav-pills .nav-link {
     color: #bfbdbd;
-    padding: 4px;
+    padding: 6px;
     font-size: smaller;
 }
 
@@ -152,7 +156,40 @@ a.dropdown-item:hover {
     --bs-nav-tabs-border-width: none;
 }
 
+/* .sidebar-dark-light-tabs li{
+    padding: 10px;
+} */
+
 .sidebar-dark-light-tabs-bg {
     background-color: #5c5c5c !important;
     font-size: small;
 }
+
+.chat-list-math {
+    background-color: #bfbdbd;
+    border: 1px solid #bfbdbd;
+    color: #bfbdbd;
+    width: 14px;
+    height: 14px;
+    display: inline-block;
+}
+
+.chat-list-architecture {
+    background-color: #9a45f5;
+    border: 1px solid #bfbdbd;
+    color: #9a45f5;
+    width: 14px;
+    height: 14px;
+    display: inline-block;
+}
+
+.chat-list-coading{
+    background-color: red;
+    border: 1px solid #bfbdbd;
+    color: red;
+    width: 14px;
+    height: 14px;
+    display: inline-block;
+}
+
+

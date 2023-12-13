@@ -82,6 +82,12 @@ const Sidebar = () => {
         setSelectLanguage(language);
     };
 
+    // Collapsed Chat List
+    const [isCollapsed, setIsCollapsed] = useState(false);
+
+    const handleToggle = () => {
+        setIsCollapsed(!isCollapsed);
+    };
 
     return (
         <Container fluid >
@@ -106,22 +112,22 @@ const Sidebar = () => {
                                 </Nav>
                                 <div className='my-3' style={{ flex: '1', borderBottom: '1px solid #bfbdbd' }}></div>
                                 <Nav variant="pills" className="flex-column">
-                                    <Nav.Item><Nav.Link eventKey="chatlist"><i className="bi bi-chevron-down me-3"></i>Chat list</Nav.Link></Nav.Item>
-                                    <Nav.Item><Nav.Link eventKey="math"><i className="bi bi-check rounded-1 me-3 text-center" style={{
-                                        backgroundColor: '#bfbdbd', border: '1px solid #bfbdbd', color: '#bfbdbd', width: '17px', height: '17px', display: 'inline-block'
-                                    }}
-                                    ></i>Math</Nav.Link></Nav.Item>
-                                    <Nav.Item><Nav.Link eventKey="architecture" className="d-flex align-items-center"><i className="bi bi-check rounded-1 me-3 text-center" style={{
-                                        backgroundColor: '#9a45f5', border: '1px solid #bfbdbd', color: '#9a45f5', width: '17px', height: '17px', display: 'inline-block'
-                                    }}
-                                    ></i>Architecture</Nav.Link></Nav.Item>
-                                    <Nav.Item>
-                                        <Nav.Link eventKey="coding" className="d-flex align-items-center">
-                                            <i className="bi bi-check rounded-1 me-3 text-center" style={{
-                                                backgroundColor: 'red', border: '1px solid #bfbdbd', color: 'red', width: '17px', height: '17px', display: 'inline-block'
-                                            }}></i>Coding
+                                    <Nav variant="pills" className={`flex-column ${isCollapsed ? 'collapsed' : ''}`}>
+                                        <Nav.Link eventKey="chatlist" onClick={handleToggle} data-toggle="collapse" href="#navItems">
+                                            <i className={`bi bi-chevron-${isCollapsed ? 'up' : 'down'} me-3`}></i>Chat list
                                         </Nav.Link>
-                                    </Nav.Item>
+                                        <div id="navItems" className={`collapse ${isCollapsed ? 'show' : ''}`}>
+                                            <Nav.Link eventKey="math">
+                                                <i className="bi bi-check rounded-1 me-3 text-center chat-list-math"></i>Math
+                                            </Nav.Link>
+                                            <Nav.Link eventKey="architecture">
+                                                <i className="bi bi-check rounded-1 me-3 text-center chat-list-architecture" ></i>Architecture
+                                            </Nav.Link>
+                                            <Nav.Link eventKey="coding">
+                                                <i className="bi bi-check rounded-1 me-3 text-center chat-list-coading"></i>Coding
+                                            </Nav.Link>
+                                        </div>
+                                    </Nav>
 
                                     <Row className='m-1 ms-0 p-2 rounded-2 sidebar-button-bg col-lg-12'>
                                         <Col lg={9} className='p-0 d-flex justify-content-start align-items-center'>
@@ -139,8 +145,8 @@ const Sidebar = () => {
 
                                     <Row className='m-1 ms-0 p-2 rounded-2  sidebar-dark-light-tabs-bg col-lg-12'>
                                         <Tabs defaultActiveKey="light" id="tab-example" className='rounded-2 nav-dark-light d-flex justify-content-between pe-0 sidebar-dark-light-tabs'>
-                                            <Tab eventKey="light" title={<span><i className="bi bi-brightness-high-fill pe-2"></i> Light</span>} className="bg-light"></Tab>
-                                            <Tab eventKey="dark" title={<span><i className="bi bi-moon pe-2"></i> Dark</span>} className="text-white p-1"></Tab>
+                                            <Tab eventKey="light" title={<span><i className="bi bi-brightness-high-fill pe-2"></i> Light</span>}></Tab>
+                                            <Tab eventKey="dark" title={<span><i className="bi bi-moon pe-2"></i> Dark</span>}></Tab>
                                         </Tabs>
                                     </Row>
                                 </Nav>
