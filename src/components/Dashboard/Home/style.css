@@ -1,0 +1,81 @@
+.tabs-button .nav-item button {
+    padding: 5px;
+    width: 187px;
+    border-radius: 10px;
+}
+
+.tabs-button button.nav-link,
+.tabs-button button.nav-link:focus,
+.tabs-button button.nav-link:hover {
+    color: black !important;
+}
+
+.chat-button button.nav-link:focus,
+.chat-button button.nav-link:hover {
+    color: black !important;
+    background-color: #f7f7f7;
+}
+
+.chat-button button.nav-link {
+    color: black;
+    background-color: white;
+    margin: 5px;
+    border-radius: 22px;
+}
+
+#dropdown-custom-components::after,
+#dropdown-custom-components {
+    content: none;
+    background-color: black;
+    width: 40px;
+    height: 40px;
+    padding: 4px;
+    font-size: large;
+    color: #ffffff;
+}
+
+.chat-field-arrow {
+    background-color: dodgerblue;
+    color: white;
+    position: relative;
+    right: 7%;
+    transform: translateX(-50%);
+    z-index: 999;
+}
+
+.toggle-icon::after {
+    display: none;
+}
+
+.profile-dropdown-bg button,
+.profile-dropdown-bg button:hover,
+.profile-dropdown-bg button:active {
+    background-color: inherit !important;
+    padding: 0;
+    border: none;
+}
+
+.profile-dropdown {
+    width: 50px;
+    height: 50px;
+}
+
+.user-profile-dropdown-bg {
+    background-color: dodgerblue;
+}
+
+.language-image-active,
+.debate-image-add {
+    padding: 10px;
+    width: 50px;
+    height: 50px;
+}
+
+.language-image-active-icon {
+    position: absolute;
+    top: 43px;
+    left: 51px;
+    color: green;
+    z-index: 1;
+}
+
