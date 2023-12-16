@@ -7,9 +7,8 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import ForgotPassword from './components/Authentication/ForgotPassword/index';
 import NewPassword from './components/Authentication/ForgotPassword/NewPassword';
 import ConfirmOPT from './components/Authentication/OTP/index';
-import SideBar from './components/Dashboard/Sidebar/index';
-import Chat from './components/Dashboard/Home/chat';
-import AudioSection from './components/Dashboard/Home/AudioSection';
+import Chat from './components/Dashboard/Chat/index';
+import AudioLibrary from './components/Dashboard/AudioLibrary';
 
 
 function App() {
@@ -22,9 +21,8 @@ function App() {
                 <Route path='/forgot_password' element={<ForgotPassword />} />
                 <Route path='/confirm_otp' element={<ConfirmOPT />} />
                 <Route path='/confirm_new_password' element={<NewPassword />} />
-                <Route path='/sidebar' element={<SideBar />} />
                 <Route path='/chat' element={<Chat />} />
-                <Route path='/audio-section' element={<AudioSection />} />
+                <Route path='/audio-library' element={<AudioLibrary />} />
             </Routes>
         </BrowserRouter>
     );

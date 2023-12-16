@@ -1,0 +1,53 @@
+.page-bg-color {
+    background-color: #141414;
+    height: 100vh;
+}
+
+.chat-page-bg {
+    background-color: white;
+}
+
+.caht-page-bg-color {
+    background-color: rgb(247, 247, 247);
+}
+
+.audios-button .nav-item .nav-link {
+    color: darkgray;
+    border: 0px;
+}
+
+.audios-button .nav-item .nav-link.active {
+    border: 0px;
+    border-radius: 20px;
+    background-color: blue;
+    color: #ffffff;
+}
+
+.audios-button .nav-item .nav-link:hover {
+    border: inherit;
+    color: #141414 !important;
+}
+
+.audio-sections {
+    background-color: #f0f0f0;
+}
+
+.avatar-pf-images img {
+    margin-left: -15px;
+}
+
+.avatar-count-images {
+    background-color: blue;
+    color: #ffffff;
+    width: 35px;
+    height: 35px;
+    margin-left: -15px;
+}
+
+.coading-bg-color {
+    background-color: chocolate;
+}
+
+.audio-sections .fs-7 {
+    font-size: small;
+}

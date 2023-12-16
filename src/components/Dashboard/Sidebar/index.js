@@ -3,6 +3,7 @@ import { Tab, Container, Row, Col, Nav, Image, Tabs, Modal, Button, Form } from 
 import './style.css';
 import UkLogo from '../../../assets/images/UK-flag-logo.png';
 import SidebarLogo from '../../../assets/images/sidebar-logo.svg';
+import { Link } from 'react-router-dom';
 
 const Sidebar = () => {
 
@@ -35,12 +36,12 @@ const Sidebar = () => {
                     <Row>
                         <Col lg={12} className='py-0'>
                             <Nav variant="pills" className="flex-column">
-                                <Nav.Item><Nav.Link eventKey="chats"><i className="bi bi-chat-left-text me-3 chat"></i> Chats</Nav.Link></Nav.Item>
+                                <Nav.Item><Nav.Link as={Link} to="/chat" eventKey="chats"><i className="bi bi-chat-left-text me-3 chat"></i> Chats</Nav.Link></Nav.Item>
                                 <Nav.Item><Nav.Link eventKey="search"><i className="bi bi-search me-3 search"></i>Search</Nav.Link></Nav.Item>
                                 <Nav.Item><Nav.Link eventKey="subscription"><i className="bi bi-card-heading me-3 manage"></i>Manage Subscription</Nav.Link></Nav.Item>
                                 <Nav.Item><Nav.Link eventKey="updates"><i className="bi bi-kanban me-3 updates"></i>Updates & FAQ</Nav.Link></Nav.Item>
                                 <Nav.Item><Nav.Link eventKey="settings"><i className="bi bi-gear me-3 settings"></i>Settings</Nav.Link></Nav.Item>
-                                <Nav.Item><Nav.Link eventKey="audioLibrary"><i className="bi bi-mic me-3 audio-library"></i>Audio Library</Nav.Link></Nav.Item>
+                                <Nav.Item><Nav.Link as={Link} to='/audio-library' eventKey="audioLibrary"><i className="bi bi-mic me-3 audio-library"></i>Audio Library</Nav.Link></Nav.Item>
                                 <Nav.Item><Nav.Link eventKey="imageLibrary"><i className="bi bi-images me-3 image-library"></i>Image Library</Nav.Link></Nav.Item>
                                 <Nav.Item><Nav.Link eventKey="goalManagement"><i className="bi bi-crosshair2 me-3 goal-management"></i>Goal Management</Nav.Link></Nav.Item>
                                 <Nav.Item><Nav.Link eventKey="referralManagement"><i className="bi bi-people me-3 referal-management"></i>Referral Management</Nav.Link></Nav.Item>
