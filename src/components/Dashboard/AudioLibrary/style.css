@@ -51,3 +51,33 @@
 .audio-sections .fs-7 {
     font-size: small;
 }
+
+.color-dark-grey {
+    color: darkgray;
+}
+
+.set-input-field,
+.set-input-field:focus {
+    font-size: small;
+    border-left: none;
+    box-shadow: unset;
+    border-color: floralwhite;
+}
+
+.sidebar-search-recently:hover {
+    background-color: gainsboro;
+    border-radius: 10px;
+}
+
+.sidebar-search-recently a {
+    color: #141414;
+    text-decoration: none;
+}
+
+.font-size-x-small {
+    font-size: x-small;
+}
+
+.font-size-small {
+    font-size: small;
+}

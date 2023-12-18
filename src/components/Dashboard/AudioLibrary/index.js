@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Tab, Container, Row, Col, Tabs, Form, Button, Image } from 'react-bootstrap';
 import Sidebar from '../Sidebar';
 import AudioSection from '../Chat/AudioSection';
 import './style.css';
 import ReactPlayer from 'react-player';
 import UkLogo from '../../../assets/images/UK-flag-logo.png'
+import DatePicker from 'react-datepicker';
 
 
 const AudioLibrary = () => {
@@ -21,6 +22,13 @@ const AudioLibrary = () => {
 
     const maxVisibleAvatarImages = 3;
 
+    // React Date Picker
+    const [selectedDate, setSelectedDate] = useState(null);
+
+    const handleDateChange = (date) => {
+        setSelectedDate(date);
+    };
+
     return (
         <Container fluid >
             <Row className='p-3 page-bg-color'>
@@ -31,10 +39,10 @@ const AudioLibrary = () => {
                     <Col className='d-flex justify-content-between align-items-center pt-3 py-2 px-4'>
                         <Col lg={10}><h3>Hello Jack</h3></Col>
                         <Col lg={2} className='d-flex justify-content-between align-items-center p-2'>
-                            <i class="bi bi-star"></i>
-                            <i class="bi bi-bookmark"></i>
-                            <i class="bi bi-upload"></i>
-                            <i class="bi bi-three-dots"></i>
+                            <i className="bi bi-star"></i>
+                            <i className="bi bi-bookmark"></i>
+                            <i className="bi bi-upload"></i>
+                            <i className="bi bi-three-dots"></i>
                         </Col>
                     </Col>
                     <Col lg={12} className='caht-page-bg-color px-4'>
@@ -44,7 +52,23 @@ const AudioLibrary = () => {
                             </Col>
                             <Col lg={4}>
                                 <Form.Group controlId="dob">
-                                    <Form.Control type="date" name="dob" placeholder="Date of Birth" />
+                                    <div className="input-group mt-3">
+                                        <span className="input-group-text border-end-0" style={{ backgroundColor: 'white' }}>
+                                            <i className="bi bi-clock-fill"></i>
+                                        </span>
+                                        <DatePicker
+                                            selected={selectedDate}
+                                            onChange={handleDateChange}
+                                            className="px-0 form-control fs-6 border border-variant border-start-0 border-end-0 rounded-0 set-input-field"
+                                            placeholderText="Date"
+                                            dateFormat="MM/dd/yyyy"
+                                            isClearable
+                                            dropdownMode="scroll"
+                                        />
+                                        <span className="p-0 pe-2 input-group-text border-start-0 rounded-end-2" style={{ backgroundColor: 'white' }}>
+                                            <i className="bi bi-calendar3 ps-1"></i>
+                                        </span>
+                                    </div>
                                 </Form.Group>
                             </Col>
                         </Col>
@@ -57,7 +81,7 @@ const AudioLibrary = () => {
                                                 <Col className='d-flex justify-content-between align-items-center py-1'>
                                                     <p className='mb-0 col-lg-5'>Paul</p>
                                                     <Button className='p-1 btn-sm border-0 coading-bg-color'>Coading</Button>
-                                                    <i class="bi bi-three-dots-vertical"></i>
+                                                    <i className="bi bi-three-dots-vertical"></i>
                                                 </Col>
                                                 <Col>
                                                     <p>22-06-23-12:56 PM</p>
@@ -81,7 +105,7 @@ const AudioLibrary = () => {
                                                 <Col className='d-flex justify-content-between align-items-center py-1'>
                                                     <p className='mb-0 col-lg-5'>Paul</p>
                                                     <Button className='p-1 btn-sm border-0 coading-bg-color'>Coading</Button>
-                                                    <i class="bi bi-three-dots-vertical"></i>
+                                                    <i className="bi bi-three-dots-vertical"></i>
                                                 </Col>
                                                 <Col>
                                                     <p>22-06-23-12:56 PM</p>
@@ -105,7 +129,7 @@ const AudioLibrary = () => {
                                                 <Col className='d-flex justify-content-between align-items-center py-1'>
                                                     <p className='mb-0 col-lg-5'>Paul</p>
                                                     <Button className='p-1 btn-sm border-0 coading-bg-color'>Coading</Button>
-                                                    <i class="bi bi-three-dots-vertical"></i>
+                                                    <i className="bi bi-three-dots-vertical"></i>
                                                 </Col>
                                                 <Col>
                                                     <p>22-06-23-12:56 PM</p>
@@ -132,7 +156,7 @@ const AudioLibrary = () => {
                                                 <Col className='d-flex justify-content-between align-items-center py-1'>
                                                     <p className='mb-0 col-lg-5'>Paul</p>
                                                     <Button className='p-1 btn-sm border-0 coading-bg-color'>Coading</Button>
-                                                    <i class="bi bi-three-dots-vertical"></i>
+                                                    <i className="bi bi-three-dots-vertical"></i>
                                                 </Col>
                                                 <Col>
                                                     <p>22-06-23-12:56 PM</p>
@@ -156,7 +180,7 @@ const AudioLibrary = () => {
                                                 <Col className='d-flex justify-content-between align-items-center py-1'>
                                                     <p className='mb-0 col-lg-5'>Paul</p>
                                                     <Button className='p-1 btn-sm border-0 coading-bg-color'>Coading</Button>
-                                                    <i class="bi bi-three-dots-vertical"></i>
+                                                    <i className="bi bi-three-dots-vertical"></i>
                                                 </Col>
                                                 <Col>
                                                     <p>22-06-23-12:56 PM</p>
@@ -180,7 +204,7 @@ const AudioLibrary = () => {
                                                 <Col className='d-flex justify-content-between align-items-center py-1'>
                                                     <p className='mb-0 col-lg-5'>Paul</p>
                                                     <Button className='p-1 btn-sm border-0 coading-bg-color'>Coading</Button>
-                                                    <i class="bi bi-three-dots-vertical"></i>
+                                                    <i className="bi bi-three-dots-vertical"></i>
                                                 </Col>
                                                 <Col>
                                                     <p>22-06-23-12:56 PM</p>
@@ -210,7 +234,7 @@ const AudioLibrary = () => {
                                                 <Col className='d-flex justify-content-between align-items-center py-1'>
                                                     <p className='mb-0 col-lg-6 fs-7'><b>New Recording 1901</b></p>
                                                     <Button className='p-1 btn-sm border-0 coading-bg-color'>Coading</Button>
-                                                    <i class="bi bi-three-dots-vertical"></i>
+                                                    <i className="bi bi-three-dots-vertical"></i>
                                                 </Col>
                                                 <Col>
                                                     <p>22-06-23-12:56 PM</p>
@@ -238,7 +262,7 @@ const AudioLibrary = () => {
                                                 <Col className='d-flex justify-content-between align-items-center py-1'>
                                                     <p className='mb-0 col-lg-6 fs-7'><b>New Recording 1901</b></p>
                                                     <Button className='p-1 btn-sm border-0 coading-bg-color'>Coading</Button>
-                                                    <i class="bi bi-three-dots-vertical"></i>
+                                                    <i className="bi bi-three-dots-vertical"></i>
                                                 </Col>
                                                 <Col>
                                                     <p>22-06-23-12:56 PM</p>
@@ -266,7 +290,7 @@ const AudioLibrary = () => {
                                                 <Col className='d-flex justify-content-between align-items-center py-1'>
                                                     <p className='mb-0 col-lg-6 fs-7'><b>New Recording 1901</b></p>
                                                     <Button className='p-1 btn-sm border-0 coading-bg-color'>Coading</Button>
-                                                    <i class="bi bi-three-dots-vertical"></i>
+                                                    <i className="bi bi-three-dots-vertical"></i>
                                                 </Col>
                                                 <Col>
                                                     <p>22-06-23-12:56 PM</p>
@@ -293,11 +317,11 @@ const AudioLibrary = () => {
                                         </Col>
                                         <p>Previous 30 Days</p>
                                         <Col lg={12} className='d-flex justify-content-center pb-5'>
-                                        <Col lg={4} className='rounded-4 m-1 p-2 audio-sections'>
+                                            <Col lg={4} className='rounded-4 m-1 p-2 audio-sections'>
                                                 <Col className='d-flex justify-content-between align-items-center py-1'>
                                                     <p className='mb-0 col-lg-6 fs-7'><b>New Recording 1901</b></p>
                                                     <Button className='p-1 btn-sm border-0 coading-bg-color'>Coading</Button>
-                                                    <i class="bi bi-three-dots-vertical"></i>
+                                                    <i className="bi bi-three-dots-vertical"></i>
                                                 </Col>
                                                 <Col>
                                                     <p>22-06-23-12:56 PM</p>
@@ -325,7 +349,7 @@ const AudioLibrary = () => {
                                                 <Col className='d-flex justify-content-between align-items-center py-1'>
                                                     <p className='mb-0 col-lg-6 fs-7'><b>New Recording 1901</b></p>
                                                     <Button className='p-1 btn-sm border-0 coading-bg-color'>Coading</Button>
-                                                    <i class="bi bi-three-dots-vertical"></i>
+                                                    <i className="bi bi-three-dots-vertical"></i>
                                                 </Col>
                                                 <Col>
                                                     <p>22-06-23-12:56 PM</p>
@@ -353,7 +377,7 @@ const AudioLibrary = () => {
                                                 <Col className='d-flex justify-content-between align-items-center py-1'>
                                                     <p className='mb-0 col-lg-6 fs-7'><b>New Recording 1901</b></p>
                                                     <Button className='p-1 btn-sm border-0 coading-bg-color'>Coading</Button>
-                                                    <i class="bi bi-three-dots-vertical"></i>
+                                                    <i className="bi bi-three-dots-vertical"></i>
                                                 </Col>
                                                 <Col>
                                                     <p>22-06-23-12:56 PM</p>

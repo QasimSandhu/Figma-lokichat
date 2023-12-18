@@ -4,8 +4,45 @@ import './style.css';
 import UkLogo from '../../../assets/images/UK-flag-logo.png';
 import SidebarLogo from '../../../assets/images/sidebar-logo.svg';
 import { Link } from 'react-router-dom';
+import DatePicker from 'react-datepicker';
+
 
 const Sidebar = () => {
+    // Dummy Side Srarchbar Data
+    const sidebarSearchText = [
+        {
+            heading: 'How can I be more productive?',
+            text: 'With increasing demands in personal and professional life, people often look for...',
+        },
+        {
+            heading: 'How can I learn a new language quickly?',
+            text: 'Language learning is a popular activity, and people often ask...',
+        },
+        {
+            heading: 'How can I be more productive?',
+            text: 'With increasing demands in personal and professional life, people often look for...',
+        },
+        {
+            heading: 'How can I learn a new language quickly?',
+            text: 'Language learning is a popular activity, and people often ask...',
+        },
+        {
+            heading: 'How can I be more productive?',
+            text: 'With increasing demands in personal and professional life, people often look for...',
+        }
+    ];
+
+    // Dummy last 30 days text
+    const sidebarSearchRecentText = [
+        {
+            heading: 'Whats the best way to implement a database in my web...',
+            text: 'Write code (HTML,CSS, JS) for a simple form with 3 input fields and a...'
+        },
+        {
+            heading: 'Whats the best way to implement a database in my web...',
+            text: 'Write code (HTML,CSS, JS) for a simple form with 3 input fields and a...'
+        }
+    ]
 
     // Set New debate Modal 
     const [addNewCategory, setAddNewCategory] = useState(false);
@@ -25,19 +62,58 @@ const Sidebar = () => {
         setIsCollapsed(!isCollapsed);
     };
 
+    // Sidebar Search Modal
+    const [sideSearchModal, setSideSearchModal] = useState(false);
+    const [searchSidebar, setSearchSidebar] = useState('');
+
+    const handleSearchModal = () => {
+        setSideSearchModal(true);
+    };
+
+    const handleCloseSearchModal = () => {
+        setSideSearchModal(false);
+    };
+
+    // React Date Picker
+    const [selectedDate, setSelectedDate] = useState(null);
+
+    const handleDateChange = (date) => {
+        setSelectedDate(date);
+    };
+
+    // Set sow buttons on hover
+    const [hoveredIndexText, setHoveredIndexText] = useState(null);
+    const [hoveredIndexRecentText, setHoveredIndexRecentText] = useState(null);
+
+    const handleMouseEnterText = (index) => {
+        setHoveredIndexText(index);
+    };
+
+    const handleMouseLeaveText = () => {
+        setHoveredIndexText(null);
+    };
+
+    const handleMouseEnterRecentText = (index) => {
+        setHoveredIndexRecentText(index);
+    };
+
+    const handleMouseLeaveRecentText = () => {
+        setHoveredIndexRecentText(null);
+    };
+
     return (
         <>
             <Col lg={2} className='d-flex flex-column'>
                 <Tab.Container id="left-tabs-example" defaultActiveKey="chats">
                     <Row className='d-flex justify-content-between align-items-center col-lg-12'>
                         <Col lg={10} className='px-0'><Image src={SidebarLogo} alt="Logo" fluid style={{ padding: '10px', width: '150px', height: '80px' }} /></Col>
-                        <Col lg={2} className='px-0'><Button><i class="bi bi-trello"></i></Button></Col>
+                        <Col lg={2} className='px-0'><Button><i className="bi bi-trello"></i></Button></Col>
                     </Row>
                     <Row>
                         <Col lg={12} className='py-0'>
                             <Nav variant="pills" className="flex-column">
                                 <Nav.Item><Nav.Link as={Link} to="/chat" eventKey="chats"><i className="bi bi-chat-left-text me-3 chat"></i> Chats</Nav.Link></Nav.Item>
-                                <Nav.Item><Nav.Link eventKey="search"><i className="bi bi-search me-3 search"></i>Search</Nav.Link></Nav.Item>
+                                <Nav.Item><Nav.Link eventKey="search" onClick={handleSearchModal}><i className="bi bi-search me-3 search"></i>Search</Nav.Link></Nav.Item>
                                 <Nav.Item><Nav.Link eventKey="subscription"><i className="bi bi-card-heading me-3 manage"></i>Manage Subscription</Nav.Link></Nav.Item>
                                 <Nav.Item><Nav.Link eventKey="updates"><i className="bi bi-kanban me-3 updates"></i>Updates & FAQ</Nav.Link></Nav.Item>
                                 <Nav.Item><Nav.Link eventKey="settings"><i className="bi bi-gear me-3 settings"></i>Settings</Nav.Link></Nav.Item>
@@ -124,6 +200,84 @@ const Sidebar = () => {
                             </Col>
                         </Row>
                     </Container>
+                </Modal.Body>
+            </Modal>
+            {/* Sidebar Search Modal */}
+            <Modal show={sideSearchModal} onHide={handleCloseSearchModal}>
+                <Modal.Header className='p-2'>
+                    <div className="input-group">
+                        <span className="input-group-text border-0" style={{ backgroundColor: 'white' }}>
+                            <i className="bi bi-search"></i>
+                        </span>
+                        <Form.Control type="email" className='border-0 set-input-field' placeholder="Search" aria-label="Enter email" aria-describedby="basic-addon1" value={searchSidebar} onChange={(e) => setSearchSidebar(e.target.value)} />
+                    </div>
+                </Modal.Header>
+                <Modal.Body>
+                    <Form>
+                        <Form.Group controlId="searchSidebar" className='px-2 mx-1'>
+                            <div className="input-group mt-1 justify-content-end">
+                                <span className="input-group-text border-end-0 rounded-start-5" style={{ backgroundColor: 'white' }}>
+                                    <i className="bi bi-clock-fill"></i>
+                                </span>
+                                <DatePicker selected={selectedDate} onChange={handleDateChange} className="form-control fs-6 border border-variant border-start-0 border-end-0 rounded-0 set-input-field px-0" placeholderText="Date" dateFormat="MM/dd/yyyy" isClearable dropdownMode="scroll" />
+                                <span className="input-group-text border-start-0 rounded-end-5 p-0 pe-2" style={{ backgroundColor: 'white' }}>
+                                    <i className="bi bi-chevron-down"></i>
+                                </span>
+                            </div>
+                            <Form.Label className='fw-bold pe-2 font-size-small'>Today</Form.Label><small className='font-size-x-small color-dark-grey'> Thu 16 Feb</small>
+                            {sidebarSearchText && sidebarSearchText.map((recentText, index) => (
+                                <Row className={`sidebar-search-recently ${index === hoveredIndexText ? 'hovered' : ''}`} key={index} onMouseEnter={() => handleMouseEnterText(index)} onMouseLeave={handleMouseLeaveText}>
+                                    {
+                                        index === hoveredIndexText ? <Col lg={8} className='pe-0'>
+                                            <a href="#!" className='mb-1 py-2 d-block'>
+                                                <strong className='d-block font-size-small'>{recentText.heading}</strong>
+                                                <small className='font-size-x-small color-dark-grey'>{recentText.text}</small>
+                                            </a>
+                                        </Col> : <Col lg={10} className='pe-0'>
+                                            <a href="#!" className='mb-1 py-2 d-block'>
+                                                <strong className='d-block font-size-small'>{recentText.heading}</strong>
+                                                <small className='font-size-x-small color-dark-grey'>{recentText.text}</small>
+                                            </a>
+                                        </Col>
+                                    }
+
+                                    {
+                                        index === hoveredIndexText ? <Col lg={4} className="hover-buttons d-flex justify-content-between align-items-center">
+                                            <Button size='sm' className='py-0 px-1 font-size-x-small' variant="light">Move Chat</Button>{' '}
+                                            <Button size='sm' className='py-0 px-1 font-size-x-small' variant="light">Jump</Button>{' '}
+                                        </Col> : <Col lg={2} className='d-flex justify-content-end ps-0'>
+                                            <small className='font-size-x-small color-dark-grey d-flex align-items-center'>1m ago</small></Col>
+                                    }
+                                </Row>
+                            ))
+                            }
+                            <Form.Label className='fw-bold pe-2 font-size-small'>Last 30 days</Form.Label>
+                            {sidebarSearchRecentText && sidebarSearchRecentText.map((recentText, index) => (
+                                <Row className={`sidebar-search-recently ${index === hoveredIndexRecentText ? 'hovered' : ''}`} key={index} onMouseEnter={() => handleMouseEnterRecentText(index)} onMouseLeave={handleMouseLeaveRecentText}>
+                                    {
+                                        index === hoveredIndexRecentText ? <Col lg={8} className='pe-0'>
+                                            <a href="#!" className='mb-1 py-2 d-block'>
+                                                <strong className='d-block font-size-small'>{recentText.heading}</strong>
+                                                <small className='font-size-x-small color-dark-grey'>{recentText.text}</small>
+                                            </a>
+                                        </Col> : <Col lg={10} className='pe-0'>
+                                            <a href="#!" className='mb-1 py-2 d-block'>
+                                                <strong className='d-block font-size-small'>{recentText.heading}</strong>
+                                                <small className='font-size-x-small color-dark-grey'>{recentText.text}</small>
+                                            </a>
+                                        </Col>
+                                    }
+                                    {
+                                        index === hoveredIndexRecentText ? <Col lg={4} className="hover-buttons d-flex justify-content-between align-items-center">
+                                            <Button size='sm' className='py-0 px-1 font-size-x-small' variant="light">Move Chat</Button>{' '}
+                                            <Button size='sm' className='py-0 px-1 font-size-x-small' variant="light">Jump</Button>{' '}
+                                        </Col> : <Col lg={2} className='d-flex justify-content-end ps-0'>
+                                            <small className='font-size-x-small color-dark-grey d-flex align-items-center'>1m ago</small></Col>
+                                    }
+                                </Row>
+                            ))}
+                        </Form.Group>
+                    </Form>
                 </Modal.Body>
             </Modal>
         </>

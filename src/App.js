@@ -9,6 +9,7 @@ import NewPassword from './components/Authentication/ForgotPassword/NewPassword'
 import ConfirmOPT from './components/Authentication/OTP/index';
 import Chat from './components/Dashboard/Chat/index';
 import AudioLibrary from './components/Dashboard/AudioLibrary';
+import 'react-datepicker/dist/react-datepicker.css';
 
 
 function App() {

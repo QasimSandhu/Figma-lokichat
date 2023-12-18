@@ -117,7 +117,7 @@ const AudioSection = () => {
                             <Col lg={11} className='d-flex justify-content-between'>
                                 <InputGroup className=''>
                                     <Dropdown>
-                                        <Dropdown.Toggle className='toggle-icon p-1 m-1' size='sm' variant="dark">Export <i class="bi bi-upload"></i>
+                                        <Dropdown.Toggle className='toggle-icon p-1 m-1' size='sm' variant="dark">Export <i className="bi bi-upload"></i>
                                         </Dropdown.Toggle>
                                         <Dropdown.Menu className='col-lg-11'>
                                             <Dropdown.Header className='d-flex justify-content-between'>
