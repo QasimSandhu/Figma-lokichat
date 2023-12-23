@@ -1,0 +1,20 @@
+.color-darkgray {
+    color: darkgray;
+}
+
+.fs-7 {
+    font-size: small;
+}
+
+.fw-medium {
+    font-weight: 500;
+}
+
+.icon-bg-gray {
+    background-color: darkgray;
+}
+
+.avatar-profile-img {
+    width: 70px;
+    height: 70px;
+}

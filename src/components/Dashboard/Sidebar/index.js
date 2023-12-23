@@ -74,6 +74,17 @@ const Sidebar = () => {
         setSideSearchModal(false);
     };
 
+    // Sidebar Profile Setting Modal
+    const [sidebarProfileSetting, setSidebarProfileSetting] = useState(false);
+
+    const handleProfileSetting = () => {
+        setSidebarProfileSetting(true);
+    };
+
+    const handleCloseProfileSetting = () => {
+        setSidebarProfileSetting(false);
+    };
+
     // React Date Picker
     const [selectedDate, setSelectedDate] = useState(null);
 
@@ -114,12 +125,12 @@ const Sidebar = () => {
                             <Nav variant="pills" className="flex-column">
                                 <Nav.Item><Nav.Link as={Link} to="/chat" eventKey="chats"><i className="bi bi-chat-left-text me-3 chat"></i> Chats</Nav.Link></Nav.Item>
                                 <Nav.Item><Nav.Link eventKey="search" onClick={handleSearchModal}><i className="bi bi-search me-3 search"></i>Search</Nav.Link></Nav.Item>
-                                <Nav.Item><Nav.Link eventKey="subscription"><i className="bi bi-card-heading me-3 manage"></i>Manage Subscription</Nav.Link></Nav.Item>
-                                <Nav.Item><Nav.Link eventKey="updates"><i className="bi bi-kanban me-3 updates"></i>Updates & FAQ</Nav.Link></Nav.Item>
-                                <Nav.Item><Nav.Link eventKey="settings"><i className="bi bi-gear me-3 settings"></i>Settings</Nav.Link></Nav.Item>
+                                <Nav.Item><Nav.Link as={Link} to='/manage-subscription' eventKey="subscription"><i className="bi bi-card-heading me-3 manage"></i>Manage Subscription</Nav.Link></Nav.Item>
+                                <Nav.Item><Nav.Link as={Link} to={'/updates-faq'} eventKey="updates"><i className="bi bi-kanban me-3 updates"></i>Updates & FAQ</Nav.Link></Nav.Item>
+                                <Nav.Item><Nav.Link eventKey="settings" onClick={handleProfileSetting}><i className="bi bi-gear me-3 settings"></i>Settings</Nav.Link></Nav.Item>
                                 <Nav.Item><Nav.Link as={Link} to='/audio-library' eventKey="audioLibrary"><i className="bi bi-mic me-3 audio-library"></i>Audio Library</Nav.Link></Nav.Item>
                                 <Nav.Item><Nav.Link eventKey="imageLibrary"><i className="bi bi-images me-3 image-library"></i>Image Library</Nav.Link></Nav.Item>
-                                <Nav.Item><Nav.Link eventKey="goalManagement"><i className="bi bi-crosshair2 me-3 goal-management"></i>Goal Management</Nav.Link></Nav.Item>
+                                <Nav.Item><Nav.Link as={Link} to='/goal-management' eventKey="goalManagement"><i className="bi bi-crosshair2 me-3 goal-management"></i>Goal Management</Nav.Link></Nav.Item>
                                 <Nav.Item><Nav.Link eventKey="referralManagement"><i className="bi bi-people me-3 referal-management"></i>Referral Management</Nav.Link></Nav.Item>
                             </Nav>
                             <div className='my-3' style={{ flex: '1', borderBottom: '1px solid #bfbdbd' }}></div>
@@ -278,6 +289,73 @@ const Sidebar = () => {
                             ))}
                         </Form.Group>
                     </Form>
+                </Modal.Body>
+            </Modal>
+            {/* Sidebar Profile Setting Modal */}
+            <Modal show={sidebarProfileSetting} onHide={handleCloseProfileSetting}>
+                <Modal.Body>
+                    {/* Left Sidebar with Sidebar Tabs */}
+                    <Col className="left-sidebar">
+                        <Tab.Container id="left-tabs-example" defaultActiveKey="first">
+                            <Row>
+                                <Col lg={4}>
+                                    <Nav variant="pills" className="flex-column">
+                                        <Nav.Item>
+                                            <Nav.Link eventKey="editProfile"><i class="bi bi-person-fill"></i> Edit Profile</Nav.Link>
+                                        </Nav.Item>
+                                        <Nav.Item>
+                                            <Nav.Link eventKey="password"><i class="bi bi-shield-lock-fill"></i> Password</Nav.Link>
+                                        </Nav.Item>
+                                        <Nav.Item>
+                                            <Nav.Link eventKey="notification"><i class="bi bi-bell-fill"></i> Notification</Nav.Link>
+                                        </Nav.Item>
+                                        <Nav.Item>
+                                            <Nav.Link eventKey="chatSupport"><i class="bi bi-arrow-down-circle-fill"></i> Chat Support</Nav.Link>
+                                        </Nav.Item>
+                                        <Nav.Item>
+                                            <Nav.Link eventKey="billingDetails"><i class="bi bi-arrow-down-circle-fill"></i> Billing Details</Nav.Link>
+                                        </Nav.Item>
+                                        <Nav.Item>
+                                            <Nav.Link eventKey="sessions"><i class="bi bi-arrow-right-circle-fill"></i> Sessions</Nav.Link>
+                                        </Nav.Item>
+                                        <Nav.Item>
+                                            <Nav.Link eventKey="appearance"><i class="bi bi-brightness-high-fill"></i> Appearance</Nav.Link>
+                                        </Nav.Item>
+                                        <hr />
+                                        <Nav.Item>
+                                            <Nav.Link eventKey="deleteAccount"><i class="bi bi-x"></i> Delete Account</Nav.Link>
+                                        </Nav.Item>
+                                    </Nav>
+                                </Col>
+                                <Col lg={8}>
+                                    <Tab.Content>
+                                        <Tab.Pane eventKey="editProfile">
+                                            <Col><p className='fw-bold fs-5'>Edit Profile</p></Col>
+                                            <Col>
+                                                <Form.Label className='fw-bold'>Avatar</Form.Label>
+                                                <Col lg={12} className='d-flex justify-content-start align-items-center px-0 pb-1'>
+                                                    <Col lg={4}><Image src={UkLogo} alt="Circular Image" roundedCircle className='avatar-profile-img' /></Col>
+                                                    <Col lg={8}>
+                                                        <Button className='btn btn-sm'>Upload new image</Button>
+                                                        <p className='mb-0 d-block d-grid'>
+                                                            <p className='d-grid color-darkgray fs-7'>At least 800x800 px recommended.<small>JPG or PNG and GIF is allowed</small></p>
+                                                        </p>
+                                                    </Col>
+                                                </Col>
+                                            </Col>
+                                        </Tab.Pane>
+                                        <Tab.Pane eventKey="password">Second tab content</Tab.Pane>
+                                        <Tab.Pane eventKey="notification">First tab content</Tab.Pane>
+                                        <Tab.Pane eventKey="chatSupport">Second tab content</Tab.Pane>
+                                        <Tab.Pane eventKey="billingDetails">First tab content</Tab.Pane>
+                                        <Tab.Pane eventKey="sessions">Second tab content</Tab.Pane>
+                                        <Tab.Pane eventKey="appearance">First tab content</Tab.Pane>
+                                        <Tab.Pane eventKey="deleteAccount">Second tab content</Tab.Pane>
+                                    </Tab.Content>
+                                </Col>
+                            </Row>
+                        </Tab.Container>
+                    </Col>
                 </Modal.Body>
             </Modal>
         </>

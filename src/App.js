@@ -10,6 +10,10 @@ import ConfirmOPT from './components/Authentication/OTP/index';
 import Chat from './components/Dashboard/Chat/index';
 import AudioLibrary from './components/Dashboard/AudioLibrary';
 import 'react-datepicker/dist/react-datepicker.css';
+import UpdatesFAQ from './components/Dashboard/UpdatesFAQ';
+import GoalManagement from './components/Dashboard/GoalManagement';
+import ManageSubscription from './components/Dashboard/ManageSubscription';
+
 
 
 function App() {
@@ -24,6 +28,9 @@ function App() {
                 <Route path='/confirm_new_password' element={<NewPassword />} />
                 <Route path='/chat' element={<Chat />} />
                 <Route path='/audio-library' element={<AudioLibrary />} />
+                <Route path='/updates-faq' element={<UpdatesFAQ />} />
+                <Route path='/manage-subscription' element={<ManageSubscription />} />
+                <Route path='/goal-management' element={<GoalManagement />} />
             </Routes>
         </BrowserRouter>
     );

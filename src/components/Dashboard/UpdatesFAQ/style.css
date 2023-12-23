@@ -1,0 +1,36 @@
+.font-color-darkgray {
+    color: darkgray;
+}
+
+.fw-bold button {
+    font-weight: bold;
+}
+
+.font-size-small {
+    font-size: small;
+}
+
+.collapse-remove-bg .accordion-button:not(.collapsed),
+.collapse-remove-bg .accordion-button:focus {
+    background-color: inherit;
+    box-shadow: none !important;
+}
+
+.nav-item .background-blue.nav-link.active {
+    background-color: #0d6efd !important;
+    color: white !important;
+}
+
+.nav-item .background-blue.nav-link,
+.nav-item .background-blue.nav-link:hover {
+    color: black !important;
+}
+
+.icon-bg-color {
+    background-color: bisque;
+    color: coral;
+}
+
+.accordion-item .dropdown-divider{
+    border-top: 1px solid var(--bs-border-color);
+}
