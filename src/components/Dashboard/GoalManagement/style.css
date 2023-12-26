@@ -2,6 +2,28 @@
     color: darkgray;
 }
 
+.bg-color-black {
+    background-color: black;
+}
+
+.color-green {
+    color: #5cf70a;
+    background-color: #e5f0df;
+}
+
+.bg-color-blueviolet,
+.bg-color-blueviolet:hover {
+    background-color: blueviolet;
+}
+
+.bg-color-aliceblue {
+    background-color: aliceblue;
+}
+
+.bg-color-white {
+    background-color: white;
+}
+
 .fs-7 {
     font-size: small;
 }
@@ -14,7 +36,68 @@
     background-color: darkgray;
 }
 
+.device-login-img {
+    width: 30px;
+    height: 30px;
+}
+
+.bg-color-gainsboro {
+    background-color: gainsboro;
+}
+
 .avatar-profile-img {
     width: 70px;
     height: 70px;
+}
+
+.merge-input-field {
+    font-size: small;
+    border-left: none;
+    box-shadow: unset !important;
+    border-color: floralwhite;
+}
+
+.merge-input-field:focus {
+    box-shadow: unset !important;
+    border-color: floralwhite;
+    background-color: aliceblue;
+}
+
+.chat-export-blue:before,
+.chat-export-blueviolet::before,
+.chat-export-red::before,
+.chat-export-black::before {
+    display: none;
+}
+
+.chat-export-blue {
+    background-color: cornflowerblue;
+    color: cornflowerblue;
+    width: 12px;
+    height: 12px;
+    display: inline-block;
+}
+
+.chat-export-blueviolet {
+    background-color: blueviolet;
+    color: blueviolet;
+    width: 12px;
+    height: 12px;
+    display: inline-block;
+}
+
+.chat-export-black {
+    background-color: black;
+    color: black;
+    width: 12px;
+    height: 12px;
+    display: inline-block;
+}
+
+.chat-export-red {
+    background-color: red;
+    color: red;
+    width: 12px;
+    height: 12px;
+    display: inline-block;
 }

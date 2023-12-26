@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Tab, Container, Row, Col, Nav, Image, Tabs, Modal, Button, Form } from 'react-bootstrap';
+import { Tab, Container, Row, Col, Nav, Image, Tabs, Modal, Button, Form, Dropdown, SplitButton, ButtonGroup } from 'react-bootstrap';
 import './style.css';
 import UkLogo from '../../../assets/images/UK-flag-logo.png';
 import SidebarLogo from '../../../assets/images/sidebar-logo.svg';
@@ -43,6 +43,13 @@ const Sidebar = () => {
             text: 'Write code (HTML,CSS, JS) for a simple form with 3 input fields and a...'
         }
     ]
+
+    // Chat Export dummy text
+    // const chatExportText = [
+    //     {
+    //         icon:<i className="bi bi-check rounded-1 me-3 text-center chat-list-coading"></i>
+    //     }
+    // ]
 
     // Set New debate Modal 
     const [addNewCategory, setAddNewCategory] = useState(false);
@@ -220,7 +227,7 @@ const Sidebar = () => {
                         <span className="input-group-text border-0" style={{ backgroundColor: 'white' }}>
                             <i className="bi bi-search"></i>
                         </span>
-                        <Form.Control type="email" className='border-0 set-input-field' placeholder="Search" aria-label="Enter email" aria-describedby="basic-addon1" value={searchSidebar} onChange={(e) => setSearchSidebar(e.target.value)} />
+                        <Form.Control type="email" className='border-0 set-input-field' placeholder="Search" aria-describedby="basic-addon1" value={searchSidebar} onChange={(e) => setSearchSidebar(e.target.value)} />
                     </div>
                 </Modal.Header>
                 <Modal.Body>
@@ -292,38 +299,38 @@ const Sidebar = () => {
                 </Modal.Body>
             </Modal>
             {/* Sidebar Profile Setting Modal */}
-            <Modal show={sidebarProfileSetting} onHide={handleCloseProfileSetting}>
+            <Modal show={sidebarProfileSetting} onHide={handleCloseProfileSetting} centered>
                 <Modal.Body>
                     {/* Left Sidebar with Sidebar Tabs */}
                     <Col className="left-sidebar">
-                        <Tab.Container id="left-tabs-example" defaultActiveKey="first">
+                        <Tab.Container id="left-tabs-example" defaultActiveKey="editProfile">
                             <Row>
                                 <Col lg={4}>
                                     <Nav variant="pills" className="flex-column">
                                         <Nav.Item>
-                                            <Nav.Link eventKey="editProfile"><i class="bi bi-person-fill"></i> Edit Profile</Nav.Link>
+                                            <Nav.Link eventKey="editProfile"><i className="bi bi-person-fill"></i> Edit Profile</Nav.Link>
                                         </Nav.Item>
                                         <Nav.Item>
-                                            <Nav.Link eventKey="password"><i class="bi bi-shield-lock-fill"></i> Password</Nav.Link>
+                                            <Nav.Link eventKey="password"><i className="bi bi-shield-lock-fill"></i> Password</Nav.Link>
                                         </Nav.Item>
                                         <Nav.Item>
-                                            <Nav.Link eventKey="notification"><i class="bi bi-bell-fill"></i> Notification</Nav.Link>
+                                            <Nav.Link eventKey="notification"><i className="bi bi-bell-fill"></i> Notification</Nav.Link>
                                         </Nav.Item>
                                         <Nav.Item>
-                                            <Nav.Link eventKey="chatSupport"><i class="bi bi-arrow-down-circle-fill"></i> Chat Support</Nav.Link>
+                                            <Nav.Link eventKey="chatExport"><i className="bi bi-arrow-down-circle-fill"></i> Chat Export</Nav.Link>
                                         </Nav.Item>
                                         <Nav.Item>
-                                            <Nav.Link eventKey="billingDetails"><i class="bi bi-arrow-down-circle-fill"></i> Billing Details</Nav.Link>
+                                            <Nav.Link eventKey="billingDetails"><i className="bi bi-arrow-down-circle-fill"></i> Billing Details</Nav.Link>
                                         </Nav.Item>
                                         <Nav.Item>
-                                            <Nav.Link eventKey="sessions"><i class="bi bi-arrow-right-circle-fill"></i> Sessions</Nav.Link>
+                                            <Nav.Link eventKey="sessions"><i className="bi bi-arrow-right-circle-fill"></i> Sessions</Nav.Link>
                                         </Nav.Item>
                                         <Nav.Item>
-                                            <Nav.Link eventKey="appearance"><i class="bi bi-brightness-high-fill"></i> Appearance</Nav.Link>
+                                            <Nav.Link eventKey="appearance"><i className="bi bi-brightness-high-fill"></i> Appearance</Nav.Link>
                                         </Nav.Item>
                                         <hr />
                                         <Nav.Item>
-                                            <Nav.Link eventKey="deleteAccount"><i class="bi bi-x"></i> Delete Account</Nav.Link>
+                                            <Nav.Link eventKey="deleteAccount"><i className="bi bi-x"></i> Delete Account</Nav.Link>
                                         </Nav.Item>
                                     </Nav>
                                 </Col>
@@ -337,20 +344,261 @@ const Sidebar = () => {
                                                     <Col lg={4}><Image src={UkLogo} alt="Circular Image" roundedCircle className='avatar-profile-img' /></Col>
                                                     <Col lg={8}>
                                                         <Button className='btn btn-sm'>Upload new image</Button>
-                                                        <p className='mb-0 d-block d-grid'>
+                                                        <div className='mb-0 d-block d-grid'>
                                                             <p className='d-grid color-darkgray fs-7'>At least 800x800 px recommended.<small>JPG or PNG and GIF is allowed</small></p>
-                                                        </p>
+                                                        </div>
+                                                    </Col>
+                                                </Col>
+                                                <Col>
+                                                    <Form.Label className='fw-bold'>Name</Form.Label>
+                                                    <div className="input-group mb-3">
+                                                        <span className="input-group-text border-end-0" style={{ backgroundColor: 'white' }}>
+                                                            <i className="bi bi-envelope"></i>
+                                                        </span>
+                                                        <Form.Control type="email" className='border border-variant border-start-0 merge-input-field' placeholder="Username or email" />
+                                                    </div>
+                                                    <Form.Label className='fw-bold'>Bio</Form.Label>
+                                                    <div className="input-group mb-3">
+                                                        <span className="input-group-text border-end-0" style={{ backgroundColor: 'white' }}>
+                                                            <i className="bi bi-envelope"></i>
+                                                        </span>
+                                                        <Form.Control as={'textarea'} type="text" className='border border-variant border-start-0 merge-input-field' placeholder="Short Bio" />
+                                                    </div>
+                                                </Col>
+                                                <Col lg={12}><Button className='btn btn-sm col-lg-12'>Save changes</Button></Col>
+                                            </Col>
+                                        </Tab.Pane>
+                                        <Tab.Pane eventKey="password">
+                                            <Col>
+                                                <Col><p className='fw-bold fs-5'>Password</p></Col>
+                                                <Col lg={12}>
+                                                    <Col className='mb-3'>
+                                                        <Form.Label className='fw-bold'>Old password</Form.Label>
+                                                        <div className="input-group">
+                                                            <span className="input-group-text border-end-0" style={{ backgroundColor: 'white' }}>
+                                                                <i className="bi bi-envelope"></i>
+                                                            </span>
+                                                            <Form.Control type="password" className='border border-variant border-start-0 merge-input-field' placeholder="Password" />
+                                                        </div>
+                                                    </Col>
+                                                    <Col className='mb-3'>
+                                                        <Form.Label className='fw-bold'>New password</Form.Label>
+                                                        <div className="input-group">
+                                                            <span className="input-group-text border-end-0" style={{ backgroundColor: 'white' }}>
+                                                                <i className="bi bi-envelope"></i>
+                                                            </span>
+                                                            <Form.Control type="password" className='border border-variant border-start-0 merge-input-field' placeholder="New password" />
+                                                        </div>
+                                                        <small>Minimum 8 characters</small>
+                                                    </Col>
+                                                    <Col className='mb-3'>
+                                                        <Form.Label className='fw-bold'>Confirm new password</Form.Label>
+                                                        <div className="input-group">
+                                                            <span className="input-group-text border-end-0" style={{ backgroundColor: 'white' }}>
+                                                                <i className="bi bi-envelope"></i>
+                                                            </span>
+                                                            <Form.Control type="password" className='border border-variant border-start-0 merge-input-field' placeholder="Confirm new password" />
+                                                        </div>
+                                                        <small>Minimum 8 characters</small>
+                                                    </Col>
+                                                    <Col lg={12}><Button className='btn btn-sm col-lg-12'>Change password</Button></Col>
+                                                </Col>
+                                            </Col>
+                                        </Tab.Pane>
+                                        <Tab.Pane eventKey="notification">
+                                            <Col>
+                                                <Col className='d-flex justify-content-between align-items-center'>
+                                                    <p className='fw-bold fs-5 mb-0'>Notifications</p>
+                                                    <Form.Check type="switch" id="custom-switch" />
+                                                </Col>
+                                                <hr />
+                                                <Col className='py-3'>
+                                                    <p className='fw-bold fs-5 mb-0'>Lokichat platform</p>
+                                                    <Col className='d-flex justify-content-between align-items-center'>
+                                                        <p className='mb-0'>New notifications</p>
+                                                        <Form.Check type="checkbox" id="custom-switch" />
+                                                    </Col>
+                                                </Col>
+                                                <hr />
+                                            </Col>
+                                        </Tab.Pane>
+                                        <Tab.Pane eventKey="chatExport">
+                                            <Col>
+                                                <Col>
+                                                    <p className='fw-bold fs-5 mb-0'>Chat export</p>
+                                                </Col>
+                                                <Col className='d-flex justify-content-between align-items-center py-3'>
+                                                    <p className='fw-bold mb-0'>Select chat list to export</p>
+                                                    <Form.Check type="switch" id="custom-switch" />
+                                                </Col>
+                                                <Col className='my-2'>
+                                                    <div className="input-group">
+                                                        <span className="input-group-text border-0 bg-color-aliceblue">
+                                                            <i className="bi bi-check rounded-1 text-center chat-export-blue"></i>
+                                                        </span>
+                                                        <Form.Control type="password" className='border-start-0 merge-input-field bg-color-aliceblue' placeholder="Arts & Media" />
+                                                    </div>
+                                                </Col>
+                                                <Col className='my-2'>
+                                                    <div className="input-group">
+                                                        <span className="input-group-text border-0 bg-color-aliceblue">
+                                                            <i className="bi bi-check rounded-1 text-center chat-export-blueviolet"></i>
+                                                        </span>
+                                                        <Form.Control type="password" className='border-start-0 merge-input-field bg-color-aliceblue' placeholder="Architecture" />
+                                                    </div>
+                                                </Col>
+                                                <Col className='my-2'>
+                                                    <div className="input-group">
+                                                        <span className="input-group-text border-0 bg-color-white">
+                                                            <i className="bi bi-check rounded-1 text-center chat-export-black"></i>
+                                                        </span>
+                                                        <Form.Control type="password" className='border-start-0 merge-input-field' placeholder="Math" />
+                                                    </div>
+                                                </Col>
+                                                <Col className='my-2'>
+                                                    <div className="input-group">
+                                                        <span className="input-group-text border-0 bg-color-white">
+                                                            <i className="bi bi-check rounded-1 text-center chat-export-red"></i>
+                                                        </span>
+                                                        <Form.Control type="password" className='border-start-0 merge-input-field' placeholder="Coading" />
+                                                    </div>
+                                                </Col>
+                                                <Col className='py-4'>
+                                                    <SplitButton id='dropdown-split-variants-Primary' title='Download Conversion PDF'>
+                                                        <Dropdown.Item eventKey="1">Action</Dropdown.Item>
+                                                        <Dropdown.Item eventKey="2">Another action</Dropdown.Item>
+                                                        <Dropdown.Item eventKey="3" active>
+                                                            Active Item
+                                                        </Dropdown.Item>
+                                                        <Dropdown.Divider />
+                                                        <Dropdown.Item eventKey="4">Separated link</Dropdown.Item>
+                                                    </SplitButton>
+                                                </Col>
+                                            </Col>
+                                        </Tab.Pane>
+                                        <Tab.Pane eventKey="billingDetails">
+                                            <Col lg={12}>
+                                                <Col>
+                                                    <p className='fw-bold fs-5 mb-0'>Billing Detail</p>
+                                                </Col>
+                                                <Col className='rounded-3 bg-color-gainsboro p-2 mt-3'>
+                                                    <Col className='d-flex justify-content-betweenx pb-5'>
+                                                        <Col lg={7} className='d-flex justify-content-between'>
+                                                            <p className='fw-bold mb-0'>Basic Plan</p>
+                                                            <small className='rounded-2 fs-7 py-1 px-2 color-green'>Monthly</small>
+                                                        </Col>
+                                                        <Col lg={5} className='d-flex justify-content-end'>
+                                                            <p className='fw-bold mb-0'>10.00 € <span className='color-darkgray'>/mo</span></p>
+                                                        </Col>
+                                                    </Col>
+                                                    <Col>
+                                                        <p className='color-darkgray fw-bold fs-7 mb-0'>Next billing date</p>
+                                                        <p className='fw-bold fs-7'>Jusly 24, 2023</p>
+                                                    </Col>
+                                                </Col>
+                                                <Col lg={12}><Button className='btn btn-sm col-lg-12 my-2 bg-color-blueviolet'>Go to billing portal</Button></Col>
+                                            </Col>
+                                        </Tab.Pane>
+                                        <Tab.Pane eventKey="sessions">
+                                            <Col lg={12}>
+                                                <Col>
+                                                    <p className='fw-bold fs-5 mb-0'>Your sessions</p>
+                                                    <p className='fs-7 color-darkgray py-3'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio voluptatibus repellendus.</p>
+                                                    <p className='fs-7 color-darkgray'>Devices</p>
+                                                </Col>
+                                                <hr />
+                                                <Col lg={12} className='d-flex justify-content-start align-items-center px-0 pb-1'>
+                                                    <Col lg={2} className='icon-bg-gray rounded-2 d-flex justify-content-center p-2'><Image src={UkLogo} alt="Circular Image" roundedCircle className='device-login-img' /></Col>
+                                                    <Col lg={7} className='ps-2'>
+                                                        <div className='mb-0 d-block d-grid'>
+                                                            <p className='mb-0 fw-bold fs-7'>Chrome on iphone</p>
+                                                            <p className='d-grid color-darkgray fs-7 mb-0'>222.333.444.555</p>
+                                                            <p className='d-grid color-darkgray fs-7'>Nov 17, 2023 | 15:12 UTC</p>
+                                                        </div>
+                                                    </Col>
+                                                    <Col lg={3}><Button variant="light" className='border border-2 fw-bold fs-7'>Revoke</Button></Col>
+                                                </Col>
+                                                <hr />
+                                                <Col lg={12} className='d-flex justify-content-start align-items-center px-0 pb-1'>
+                                                    <Col lg={2} className='icon-bg-gray rounded-2 d-flex justify-content-center p-2'><Image src={UkLogo} alt="Circular Image" roundedCircle className='device-login-img' /></Col>
+                                                    <Col lg={7} className='ps-2'>
+                                                        <div className='mb-0 d-block d-grid'>
+                                                            <p className='mb-0 fw-bold fs-7'>Chrome on iphone</p>
+                                                            <p className='d-grid color-darkgray fs-7 mb-0'>222.333.444.555</p>
+                                                            <p className='d-grid color-darkgray fs-7'>Nov 17, 2023 | 15:12 UTC</p>
+                                                        </div>
+                                                    </Col>
+                                                    <Col lg={3}><Button variant="light" className='border border-2 fw-bold fs-7'>Revoke</Button></Col>
+                                                </Col>
+                                                <hr />
+                                                <Col lg={12} className='d-flex justify-content-start align-items-center px-0 pb-1'>
+                                                    <Col lg={2} className='icon-bg-gray rounded-2 d-flex justify-content-center p-2'><Image src={UkLogo} alt="Circular Image" roundedCircle className='device-login-img' /></Col>
+                                                    <Col lg={7} className='ps-2'>
+                                                        <div className='mb-0 d-block d-grid'>
+                                                            <p className='mb-0 fw-bold fs-7'>Chrome on iphone</p>
+                                                            <p className='d-grid color-darkgray fs-7 mb-0'>222.333.444.555</p>
+                                                            <p className='d-grid color-darkgray fs-7'>Nov 17, 2023 | 15:12 UTC</p>
+                                                        </div>
+                                                    </Col>
+                                                    <Col lg={3}><Button variant="light" className='border border-2 fw-bold fs-7'>Revoke</Button></Col>
+                                                </Col>
+                                                <Col lg={12}><Button className='btn btn-sm col-lg-12 my-2 '>Sign out all devices</Button></Col>
+                                            </Col>
+                                        </Tab.Pane>
+                                        <Tab.Pane eventKey="appearance">
+                                            <Col lg={12}>
+                                                <Col>
+                                                    <p className='fw-bold fs-5 mb-0'>Appearance</p>
+                                                    <p className='fs-7 fw-bold py-3'>Devices</p>
+                                                </Col>
+                                                <Col lg={11} className='d-flex justify-content-between'>
+                                                    <Col lg={4} className='border border-primary bg-color-white rounded-2 p-2'>
+                                                        <Col className='rounded-2 bg-color-gainsboro ps-2 pt-5'>
+                                                        </Col>
+                                                        <p className='fs-7 color-darkgray mb-0'>Light mode</p>
+                                                    </Col>
+                                                    <Col lg={4} className='bg-color-gainsboro rounded-2 p-2'>
+                                                        <Col className='rounded-2 bg-color-black ps-2 pt-5'>
+                                                        </Col>
+                                                        <p className='fs-7 mb-0'>Dark mode</p>
+                                                    </Col>
+                                                </Col>
+                                                <Col className='d-flex justify-content-between align-items-center'>
+                                                    <Col lg={5} className='my-4'>
+                                                        <p className='fs-7 fw-bold'>Primary language</p>
+                                                    </Col>
+                                                    <Col lg={7} className='my-4 d-flex justify-content-end'>
+                                                        <Dropdown as={ButtonGroup}>
+                                                            <Button size='sm' className='fs-7' variant="secondary">English (United State)</Button>
+                                                            <Dropdown.Toggle split variant="secondary" id="dropdown-split-basic" />
+                                                            <Dropdown.Menu>
+                                                                <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
+                                                                <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
+                                                                <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+                                                            </Dropdown.Menu>
+                                                        </Dropdown>
                                                     </Col>
                                                 </Col>
                                             </Col>
                                         </Tab.Pane>
-                                        <Tab.Pane eventKey="password">Second tab content</Tab.Pane>
-                                        <Tab.Pane eventKey="notification">First tab content</Tab.Pane>
-                                        <Tab.Pane eventKey="chatSupport">Second tab content</Tab.Pane>
-                                        <Tab.Pane eventKey="billingDetails">First tab content</Tab.Pane>
-                                        <Tab.Pane eventKey="sessions">Second tab content</Tab.Pane>
-                                        <Tab.Pane eventKey="appearance">First tab content</Tab.Pane>
-                                        <Tab.Pane eventKey="deleteAccount">Second tab content</Tab.Pane>
+                                        <Tab.Pane eventKey="deleteAccount">
+                                            <Col lg={12}>
+                                                <Col>
+                                                    <p className='fw-bold fs-5'>We're sorry to see you go</p>
+                                                </Col>
+                                                <Col>
+                                                    <p className='color-darkgray fs-7'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex veritatis tenetur in recusandae ipsa sequi facilis odio quam maxime, nobis accusamus sapiente.</p>
+                                                    <Form.Label className='fw-bold'>Yoyr password</Form.Label>
+                                                    <div className="input-group mb-3">
+                                                        <span className="input-group-text border-end-0" style={{ backgroundColor: 'white' }}>
+                                                            <i className="bi bi-lock-fill"></i>
+                                                        </span>
+                                                        <Form.Control type="password" className='border border-variant border-start-0 merge-input-field' placeholder="Password" />
+                                                    </div>
+                                                </Col>
+                                                <Col lg={12}><Button variant='danger' className='btn btn-sm col-lg-12 my-2 '>Delete account</Button></Col>
+                                            </Col>
+                                        </Tab.Pane>
                                     </Tab.Content>
                                 </Col>
                             </Row>
