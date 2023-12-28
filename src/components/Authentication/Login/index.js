@@ -45,26 +45,26 @@ const Login = () => {
                                     </GoogleOAuthProvider>
                                 </Button>
 
-                                <Button className='col-lg-12 mt-2' variant="white" style={{ border: '3px solid #d9d9d9' }}>
-                                    <i className="bi bi-apple" style={{ marginRight: '8px' }}></i>
+                                <Button className='col-lg-12 mt-2 d-flex justify-content-between align-items-center text-center' variant="white" style={{ border: '3px solid #d9d9d9' }}>
+                                    <i className="bi bi-apple col-lg-1" style={{ marginRight: '8px' }}></i>
                                     <AppleLogin clientId="com.react.apple.login" redirectURI="https://redirectUrl.com" buttonText="Continue with Apple"
                                         render={({ onClick }) => (
-                                            <button onClick={onClick} className="apple-login-button" style={{ border: 'none', backgroundColor: 'unset' }}>
+                                            <p onClick={onClick} className="apple-login-button mb-0 col-lg-11" style={{ border: 'none', backgroundColor: 'unset' }}>
                                                 Continue with Apple
-                                            </button>
+                                            </p>
                                         )}
                                     />
                                 </Button>
-                                <div className='mt-3' style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end' }}>
+                                <div className='mt-3 d-flex justify-content-end align-items-center'>
                                     <div className='col-lg-6' ></div>
                                     <div style={{ color: '#b3b3b3' }}>or</div>
-                                    <div className='col-lg-6' style={{ flex: '1', borderBottom: '2px solid #b3b3b3', marginLeft: '10px' }}></div>
+                                    <div className='col-lg-6 ms-2' style={{ flex: '1', borderBottom: '2px solid #b3b3b3' }}></div>
                                 </div>
                             </div>
                             <Form>
                                 <Form.Group controlId="formBasicEmail">
                                     <div className="input-group mt-3">
-                                        <span className="input-group-text" style={{ background: '#D9D9D9', width: '30px', textAlign: 'center' }}>
+                                        <span className="input-group-text align-items-center" style={{ background: '#D9D9D9', width: '30px', }}>
                                             <i className="bi bi-envelope"></i>
                                         </span>
                                         <Form.Control

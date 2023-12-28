@@ -1,3 +1,24 @@
 .nsm7Bb-HzV7m-LgbsSe.hJDwNd-SxQuSe.i5vt6e-Ia7Qfc.uaxL4e-RbRzK {
     border: none;
 }
+
+.create-account-btn {
+    font-size: small;
+    border: none;
+}
+
+.signup-input-field {
+    font-size: small;
+    background-color: #D9D9D9;
+    box-shadow: unset;
+    border-color: floralwhite;
+}
+
+.bg-color-lightskyblue {
+    background-color: lightskyblue;
+}
+
+.signup-check-input-field{
+    box-shadow: unset;
+    border-color: #D9D9D9;
+}

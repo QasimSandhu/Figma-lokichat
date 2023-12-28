@@ -1,0 +1,35 @@
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.IntivtedSuperUserTemplate = exports.welcomeTemplate = exports.SupscriptionExpiredTemplate = exports.SuperUserRequestTemplate = exports.SuperUserApprovedTemplate = exports.RefferFriendTemplate = exports.otpTemplate = exports.limitReachedTemplate = exports.goalTemplate = exports.forgotPasswordTemplate = exports.FailedPaymentTemplates = exports.debateRequestTemplate = exports.debateApprovedTemplate = exports.audioSharingTemplate = void 0;
+const audioSharingTemplate_1 = __importDefault(require("./audioSharingTemplate"));
+exports.audioSharingTemplate = audioSharingTemplate_1.default;
+const debateApprovedTemplate_1 = __importDefault(require("./debateApprovedTemplate"));
+exports.debateApprovedTemplate = debateApprovedTemplate_1.default;
+const debateRequestTemplate_1 = __importDefault(require("./debateRequestTemplate"));
+exports.debateRequestTemplate = debateRequestTemplate_1.default;
+const FailedPaymentTemplates_1 = __importDefault(require("./FailedPaymentTemplates"));
+exports.FailedPaymentTemplates = FailedPaymentTemplates_1.default;
+const forgotPasswordTemplate_1 = __importDefault(require("./forgotPasswordTemplate"));
+exports.forgotPasswordTemplate = forgotPasswordTemplate_1.default;
+const goalTemplate_1 = __importDefault(require("./goalTemplate"));
+exports.goalTemplate = goalTemplate_1.default;
+const limitReachedTemplate_1 = __importDefault(require("./limitReachedTemplate"));
+exports.limitReachedTemplate = limitReachedTemplate_1.default;
+const otpTemplate_1 = __importDefault(require("./otpTemplate"));
+exports.otpTemplate = otpTemplate_1.default;
+const RefferFriendTemplate_1 = __importDefault(require("./RefferFriendTemplate"));
+exports.RefferFriendTemplate = RefferFriendTemplate_1.default;
+const SuperUserApprovedTemplate_1 = __importDefault(require("./SuperUserApprovedTemplate"));
+exports.SuperUserApprovedTemplate = SuperUserApprovedTemplate_1.default;
+const SuperUserRequestTemplate_1 = __importDefault(require("./SuperUserRequestTemplate"));
+exports.SuperUserRequestTemplate = SuperUserRequestTemplate_1.default;
+const SupscriptionExpiredTemplate_1 = __importDefault(require("./SupscriptionExpiredTemplate"));
+exports.SupscriptionExpiredTemplate = SupscriptionExpiredTemplate_1.default;
+const welcomeTemplate_1 = __importDefault(require("./welcomeTemplate"));
+exports.welcomeTemplate = welcomeTemplate_1.default;
+const InviteSuperUserTemplate_1 = __importDefault(require("./InviteSuperUserTemplate"));
+exports.IntivtedSuperUserTemplate = InviteSuperUserTemplate_1.default;
+//# sourceMappingURL=index.js.map

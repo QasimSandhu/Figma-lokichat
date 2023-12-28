@@ -1,0 +1,3354 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "LokiChat",
+    "description": "LokiChat Swagger Api documentation",
+    "version": "1.0.0"
+  },
+  "produces": ["application/json"],
+  "paths": {
+    "/api/auth/login": {
+      "post": {
+        "summary": "SignIn",
+        "tags": ["Auth"],
+        "description": "Fill the parameters and send the request.",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "Body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "email": {
+                  "type": "string",
+                  "default": "test@gmail.com"
+                },
+                "password": {
+                  "type": "string",
+                  "default": "password"
+                },
+                "ipAddress": {
+                  "type": "string",
+                  "default": "110.93.223.130"
+                },
+                "isMobile": {
+                  "type": "boolean",
+                  "default": false
+                },
+                "mobileId": {
+                  "type": "string",
+                  "default": "121212"
+                },
+                "mobileName": {
+                  "type": "string",
+                  "default": "Redmi Note11"
+                },
+                "os": {
+                  "type": "string",
+                  "default": "Mac OS"
+                },
+                "browserName": {
+                  "type": "string",
+                  "default": "Chrome"
+                },
+                "browserVersion": {
+                  "type": "string",
+                  "default": "110.93.223.130"
+                }
+              },
+              "required": ["email", "password", "ipAddress", "os"]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/auth/register": {
+      "post": {
+        "summary": "SignUp",
+        "tags": ["Auth"],
+        "description": "Setup new company/organization",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "Body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "username": {
+                  "type": "string",
+                  "default": "Test"
+                },
+                "email": {
+                  "type": "string",
+                  "default": "test@gmail.com"
+                },
+                "password": {
+                  "type": "string",
+                  "default": "Admin123"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/auth/verify-otp": {
+      "post": {
+        "summary": "VerifyOTP",
+        "tags": ["Auth"],
+        "description": "After SignUp",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "Body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "email": {
+                  "type": "string",
+                  "default": "test@gmail.com"
+                },
+                "otp": {
+                  "type": "number",
+                  "default": 5678
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/auth/request-otp": {
+      "post": {
+        "summary": "RequestOTP",
+        "tags": ["Auth"],
+        "description": "After signup/forgot password",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "Body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "email": {
+                  "type": "string",
+                  "default": "test@gmail.com"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/auth/reset-password": {
+      "post": {
+        "summary": "SignUp",
+        "tags": ["Auth"],
+        "description": "Setup new company/organization",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "Body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "newPassword": {
+                  "type": "string",
+                  "default": "password"
+                },
+                "confirmNewPassword": {
+                  "type": "string",
+                  "default": "password"
+                },
+                "email": {
+                  "type": "string",
+                  "default": "test@gmails.com"
+                }
+              },
+              "required": ["email", "newPassword", "confirmNewPassword"]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/auth/refresh-token": {
+      "post": {
+        "summary": "Refresh Token",
+        "tags": ["Auth"],
+        "description": "Refresh jwt expired token",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "Body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "refreshToken": {
+                  "type": "string",
+                  "default": "refresh token string"
+                },
+                "userId": {
+                  "type": "string",
+                  "default": "121212"
+                },
+                "ipAddress": {
+                  "type": "string",
+                  "default": "192.1681.1."
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/auth/user/getProfile": {
+      "post": {
+        "summary": "GetUserProfile",
+        "tags": ["Auth"],
+        "description": " User Profile after login with Apple/Google",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "Body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "provider": {
+                  "type": "string",
+                  "default": "google"
+                },
+                "token": {
+                  "type": "string",
+                  "default": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NGU0NTBlZDNkMmZmNWFiMmU4NTE1MDEiLCJpYXQiOjE2OTI4NzI0MTIsImV4cCI6MTY5Mjg5NDAxMn0.jq94QK6PejZnEcl5lOerffbyn_GMKyl-IE2T64z861Q"
+                },
+                "ipAddress": {
+                  "type": "string",
+                  "default": "110.93.223.130"
+                },
+                "isMobile": {
+                  "type": "boolean",
+                  "default": false
+                },
+                "mobileId": {
+                  "type": "string",
+                  "default": "121212"
+                },
+                "mobileName": {
+                  "type": "string",
+                  "default": "Redmi Note11"
+                },
+                "os": {
+                  "type": "string",
+                  "default": "Mac OS"
+                },
+                "browserName": {
+                  "type": "string",
+                  "default": "Chrome"
+                },
+                "browserVersion": {
+                  "type": "string",
+                  "default": "110.93.223.130"
+                }
+              },
+              "required": ["ipAddress", "os"]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/auth/user/referral-detail/{userId}": {
+      "get": {
+        "summary": "Get referral detail of a user",
+        "tags": ["referral management"],
+        "description": "Get referral detail of a user by user ID.",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string",
+            "required": true,
+            "description": "Authorization token"
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "type": "string",
+            "required": true,
+            "description": "ID of the user to get detail"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Data fetched successfully"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/auth/verify-refferral": {
+      "post": {
+        "summary": "Verify Referral Code",
+        "tags": ["Auth"],
+        "description": "Get referral detail of a user by user ID.",
+        "parameters": [
+          {
+            "name": "email | appleProviderId | gmailProviderId",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "email": {
+                  "type": "string"
+                },
+                "appleProviderId": {
+                  "type": "string"
+                },
+                "gmailProviderId": {
+                  "type": "string"
+                },
+                "os": {
+                  "type": "string"
+                },
+                "browserName": {
+                  "type": "string"
+               },    
+               "browserVersion": {
+                  "type": "string"
+              },
+                "ipAddress": {
+                  "type": "string"
+              }
+              ,
+                "mobileId": {
+                  "type": "string"  
+              } ,  "mobileName": {
+                  "type": "string"
+                }
+            }}}
+        ],
+        "responses": {
+          "200": {
+            "description": "Data fetched successfully"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+
+    "/api/auth/user/user-detail/{userId}": {
+      "get": {
+        "summary": "Get user detail",
+        "tags": ["user management"],
+        "description": "Get user detail by user ID.",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string",
+            "required": true,
+            "description": "Authorization token"
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "type": "string",
+            "required": true,
+            "description": "ID of the user to get detail"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Data fetched successfully"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/auth/user-invites": {
+      "post": {
+        "summary": "Increment User's Invite Count",
+        "tags": ["user management"],
+        "description": "Increment the invite count of a user based on their referral code.",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string",
+            "required": true,
+            "description": "Authorization token"
+          },
+          {
+            "name": "referralCode",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "referralCode": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "User's invite count incremented successfully."
+          },
+          "400": {
+            "description": "Bad request. Referral code is missing or invalid."
+          },
+          "404": {
+            "description": "Referring user not found."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/document-translation/store": {
+      "post": {
+        "summary": "Store Translation",
+        "tags": ["Document Translation"],
+        "description": "Request to Translate Document",
+        "produces": ["application/json"],
+        "consumes": ["multipart/form-data"],
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "in": "formData",
+            "name": "file",
+            "type": "file",
+            "required": true,
+            "description": "File to upload"
+          },
+          {
+            "in": "formData",
+            "name": "targetLanguage",
+            "type": "string",
+            "required": true,
+            "description": "language to convert"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/document-summary/generate": {
+      "post": {
+        "summary": "Summarize Document",
+        "tags": ["Document Summaries"],
+        "description": "Summarize document.",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "formData",
+            "name": "file",
+            "type": "file",
+            "required": true,
+            "description": "File to upload"
+          },
+          {
+            "in": "formData",
+            "name": "chatId",
+            "type": "string",
+            "description": "current chatId"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/audio/store": {
+      "post": {
+        "summary": "Store Audio",
+        "tags": ["Audio"],
+        "description": "Store audio data.",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Audio storage request body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "text": {
+                  "type": "string",
+                  "example": "Hello, this is a test."
+                },
+                "chatId": {
+                  "type": "string",
+                  "example": "chat123"
+                },
+                "audioLabel": {
+                  "type": "string",
+                  "example": "Physics"
+                },
+                "voiceName": {
+                  "type": "string",
+                  "example": "en-US-JennyNeural"
+                },
+                "speed": {
+                  "type": "string",
+                  "example": "1"
+                },
+                "gender": {
+                  "type": "string",
+                  "example": "angry"
+                },
+                "language": {
+                  "type": "string",
+                  "example": "en-Us"
+                }
+              },
+              "required": [
+                "text",
+                "chatId",
+                "gender",
+                "language",
+                "voiceName",
+                "voiceMode"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/audio/show": {
+      "post": {
+        "summary": "Show Audio",
+        "tags": ["Audio"],
+        "description": "Show audio data by audioId.",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Audio show request body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "audioId": {
+                  "type": "string",
+                  "example": "audio123"
+                }
+              },
+              "required": ["audioId"]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/audio/update": {
+      "post": {
+        "summary": "Update Audio",
+        "tags": ["Audio"],
+        "description": "Update audio data by audioId.",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Audio update request body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "audioId": {
+                  "type": "string",
+                  "example": "audio123"
+                },
+                "text": {
+                  "type": "string",
+                  "example": "Updated text"
+                },
+                "gender": {
+                  "type": "string",
+                  "example": "Male"
+                },
+                "language": {
+                  "type": "string",
+                  "example": "en"
+                },
+                "voiceName": {
+                  "type": "string",
+                  "example": "en-US-JennyNeural"
+                },
+                "voiceMode": {
+                  "type": "string",
+                  "example": "angry"
+                }
+              },
+              "required": ["audioId", "text", "voiceName", "voiceMode"]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/audio/destroy/{audioId}": {
+      "delete": {
+        "summary": "Destroy Audio",
+        "tags": ["Audio"],
+        "description": "Delete audio data by audioId.",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "audioId",
+            "type": "string",
+            "description": "ID of the audio to be deleted",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/audio-library/removeSharedAudio/{audioId}": {
+      "delete": {
+        "summary": "Remove shared Audio",
+        "tags": ["Audio Library"],
+        "description": "Delete  shared audio data by audioId.",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "audioId",
+            "type": "string",
+            "description": "ID of the audio to be deleted",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/audio-library/addSharedAudio": {
+        "put": {
+          "summary": "Update shared Audio",
+          "tags": ["Audio Library"],
+          "description": "Update audio  by adding emails of user.",
+          "parameters": [
+            {
+              "name": "authorization",
+              "in": "header",
+              "type": "string"
+            },
+            {
+              "in": "body",
+              "name": "body",
+              "description": "Audio update request body",
+              "required": true,
+              "schema": {
+                "properties": {
+                  "audioId":{
+                    "type":"string"
+                  },
+                  "ids": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }}
+                },
+                "required": ["sharedToEmails"]
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "OK"
+            },
+            "500": {
+              "description": "Internal Server Error"
+            }
+          }
+        }
+      },
+      "/api/audio-library/getAllUsers": {
+        "get": {
+          "summary": "Get All Users",
+          "tags": ["Audio Library"],
+          "description": "Retrieve all users records from the database.",
+          "parameters": [
+            {
+              "name": "authorization",
+              "in": "header",
+              "type": "string"
+            },
+            {
+              "name": "page",
+              "in": "query",
+              "description": "Page number for pagination",
+              "required": false,
+              "type": "integer"
+            },
+            {
+              "name": "resPerPage",
+              "in": "query",
+              "description": "Number of records per page",
+              "required": false,
+              "type": "integer"
+            }, {
+              "name": "search",
+              "in": "query",
+              "description": "Search by name or email",
+              "required": false,
+              "type": "string"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "OK"
+            },
+            "500": {
+              "description": "Internal Server Error"
+            }
+          }
+        }
+      },
+      "/api/audio-library/sharedAudioLibrary": {
+        "get": {
+          "summary": "Get shared Audio Library",
+          "tags": ["Audio Library"],
+          "description": "Retrieve audio records from the database.",
+          "parameters": [
+            {
+              "name": "authorization",
+              "in": "header",
+              "type": "string"
+            },
+            {
+              "name": "page",
+              "in": "query",
+              "description": "Page number for pagination",
+              "required": false,
+              "type": "integer"
+            },
+            {
+              "name": "resPerPage",
+              "in": "query",
+              "description": "Number of records per page",
+              "required": false,
+              "type": "integer"
+            },
+            {
+              "name": "date",
+              "in": "query",
+              "description": "Filter by date (ISO format)",
+              "required": false,
+              "type": "string",
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "audios": {
+                    "type": "array"
+                  },
+                  "totalAudios": {
+                    "type": "integer"
+                  }
+                }
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "OK"
+            },
+            "500": {
+              "description": "Internal Server Error"
+            }
+          }
+        }
+      },
+      "/api/audio-library/sharedAudioLibraryPrevMonth": {
+        "get": {
+          "summary": "Get previous month shared Audio Library",
+          "tags": ["Audio Library"],
+          "description": "Retrieve audio records from the database.",
+          "parameters": [  {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Audio update request body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "audioId": {
+                  "type": "string"
+                },
+                "sharedToEmails": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": ["sharedToEmails"]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/chats/index": {
+      "get": {
+        "summary": "Get previous month shared Audio Library",
+        "tags": ["Chat"],
+        "description": "Retrieve chats records from the database.",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "name": "search",
+            "in": "query",
+            "description": "search chats",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "dateSpan",
+            "in": "query",
+            "description": "today, lastWeek, last30Days, older are allowed values",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/chats/indexByPagination": {
+      "get": {
+        "summary": "Get All chats",
+        "tags": ["Chat"],
+        "description": "Retrieve all chat  records from the database.",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page number for pagination",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "name": "resPerPage",
+            "in": "query",
+            "description": "Number of records per page",
+            "required": false,
+            "type": "integer"
+          }, {
+            "name": "search",
+            "in": "query",
+            "description": "Search",
+            "required": false,
+            "type": "string"
+          }
+          , {
+            "name": "filter",
+            "in": "query",
+            "description": "filter by time",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/chats/store": {
+      "post": {
+        "summary": "Store Chat",
+        "tags": ["Chat"],
+        "description": "Store user chat messages and responses.",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "Body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "message": {
+                  "type": "string",
+                  "example": "Hello, how can you help?"
+                },
+                "chatId": {
+                  "type": "string",
+                  "example": "1234567890"
+                },
+                "chatListId": {
+                  "type": "string",
+                  "example": "abcdef123456"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/chats/re-store": {
+      "post": {
+        "summary": "Re-Store Chat Message",
+        "tags": ["Chat"],
+        "description": "Update and re-store a chat message's response.",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "Body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "chatId": {
+                  "type": "string",
+                  "example": "1234567890"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "Hello, how can you help?"
+                },
+                "messageId": {
+                  "type": "string",
+                  "example": "abcdef123456"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/chats/show": {
+      "post": {
+        "summary": "Show Chat",
+        "tags": ["Chat"],
+        "description": "Retrieve chat details by chat ID.",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "Body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "chatId": {
+                  "type": "string",
+                  "example": "1234567890"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/chats/update": {
+      "put": {
+        "summary": "Update Chat Message",
+        "tags": ["Chat"],
+        "description": "Update a chat message and its response.",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "Body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "_id": {
+                  "type": "string",
+                  "example": "1234567890"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "Updated chat message"
+                },
+                "response": {
+                  "type": "string",
+                  "example": "New response after update"
+                },
+                "messageId": {
+                  "type": "string",
+                  "example": "abcdef123456"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/chats/promptAdvisor": {
+      "get": {
+        "summary": "Get prompt list",
+        "tags": ["Chat"],
+        "description": "get list of prompt advisor.",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/chats/store-list": {
+      "post": {
+        "summary": "Update Chat Message",
+        "tags": ["Chat"],
+        "description": "Update a chat message and its response.",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "Body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "title": {
+                  "type": "string",
+                  "example": "Math"
+                },
+                "color": {
+                  "type": "string",
+                  "example": "#ffffff"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/chats/store-stream": {
+      "post": {
+        "summary": "Create Chat Stream Messages",
+        "tags": ["Chat"],
+        "description": "Update a chat message and its response.",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "Body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "chatModel": {
+                  "type": "string",
+                  "example": "Llama-2-70b-chat-hf"
+                },
+                "chatId": {
+                  "type": "string",
+                  "example": "657be2bd5137b0f1b952a5c1"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "What is OOP?"
+                },
+                "messagePassCode": {
+                  "type": "string",
+                  "example": "kj7Q39"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/chats/update-stream": {
+      "post": {
+        "summary": "Update Chat Stream Messages",
+        "tags": ["Chat"],
+        "description": "Update a chat message and its response.",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "Body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "chatId": {
+                  "type": "string",
+                  "example": "657be2bd5137b0f1b952a5c1"
+                },
+                "messageId": {
+                  "type": "string",
+                  "example": "Llama-2-70b-chat-hf"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "What is OOP?"
+                },
+                "messagePassCode": {
+                  "type": "string",
+                  "example": "kj7Q39"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/chats/show-details": {
+      "post": {
+        "summary": "Update Chat Message",
+        "tags": ["Chat"],
+        "description": "Update a chat message and its response.",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "Body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "chatId": {
+                  "type": "string",
+                  "example": "12121212"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/chat-list/export": {
+      "post": {
+        "summary": "Export chat lists",
+        "tags": ["Chat Lists"],
+        "description": "Getting list records of exporting chat lists",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "Body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "chatListId": {
+                  "type": "string",
+                  "example": "abcdef123456"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/chat-list/index": {
+      "get": {
+        "summary": "Get all chats list",
+        "tags": ["Chat Lists"],
+        "description": "Update a chat message and its response.",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/chat-list/showByPagination": {
+      "get": {
+        "summary": "Get All chat list",
+        "tags": ["Chat Lists"],
+        "description": "Retrieve all chat list records from the database.",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page number for pagination",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "name": "resPerPage",
+            "in": "query",
+            "description": "Number of records per page",
+            "required": false,
+            "type": "integer"
+          }, {
+            "name": "search",
+            "in": "query",
+            "description": "Search by name or email",
+            "required": false,
+            "type": "string"
+          }
+          , {
+            "name": "filter",
+            "in": "query",
+            "description": "filter by time",
+            "required": false,
+            "type": "string"
+          }, {
+            "name": "chatListId",
+            "in": "query",
+            "description": "filter by time",
+            "required": false,
+            "type": "string"
+          }
+          
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/notebook/store": {
+      "post": {
+        "summary": "Store Chat in Live Notebook",
+        "tags": ["Notebook"],
+        "description": "Add a chat message and its response to the live notebook.",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "Body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "example": "1234567890"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "Hello, how can you help?"
+                },
+                "response": {
+                  "type": "string",
+                  "example": "I can help you with various topics."
+                },
+                "messageId": {
+                  "type": "string",
+                  "example": "abcdef123456"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/notebook/index": {
+      "post": {
+        "summary": "Get All Live Notebooks",
+        "tags": ["Notebook"],
+        "description": "Retrieve all added live notebooks for a specific chat.",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "Body",
+            "required": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "example": "1234567890"
+                  },
+                  "message": {
+                    "type": "string",
+                    "example": "Hello, how can you help?"
+                  },
+                  "response": {
+                    "type": "string",
+                    "example": "I can help you with various topics."
+                  },
+                  "messageId": {
+                    "type": "string",
+                    "example": "abcdef123456"
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/notebook/update": {
+      "put": {
+        "summary": "Update Live Notebook",
+        "tags": ["Notebook"],
+        "description": "Update a live notebook entry with a new response.",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "Body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "notebookId": {
+                  "type": "string",
+                  "example": "1234567890"
+                },
+                "response": {
+                  "type": "string",
+                  "example": "Updated response"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/notebook/destroy/{notebookId}": {
+      "delete": {
+        "summary": "Delete Live Notebook",
+        "tags": ["Notebook"],
+        "description": "Delete a live notebook entry by ID.",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "notebookId",
+            "required": true,
+            "type": "string",
+            "description": "ID of the live notebook entry to delete",
+            "schema": {
+              "properties": {
+                "_id": {
+                  "type": "string",
+                  "example": "1234567890"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/notebook/destroy-by-user": {
+      "post": {
+        "summary": "Delete Live Notebooks by User ID",
+        "tags": ["Notebook"],
+        "description": "Delete all live notebook entries associated with a user by their User ID.",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "Body",
+            "required": true,
+            "type": "string",
+            "description": "ChatID of the user Chat whose notebooks need to be deleted",
+            "schema": {
+              "properties": {
+                "chatId": {
+                  "type": "string",
+                  "example": "1234567890"
+                },
+                "debateId": {
+                  "type": "string",
+                  "example": "1234567890"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/voices-list/store": {
+      "post": {
+        "summary": "Store Available Voices",
+        "tags": ["Voice Lists"],
+        "description": "Store available voices in the database.",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string",
+            "required": true,
+            "description": "Authorization token"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Voice list stored successfully"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/language-List/index": {
+      "get": {
+        "summary": "Get Available Voices",
+        "tags": ["Language Lists"],
+        "description": "Retrieve available languages and voices from the database.",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string",
+            "required": true,
+            "description": "Authorization token"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/audio-library/index": {
+      "get": {
+        "summary": "Get Audio Library",
+        "tags": ["Audio Library"],
+        "description": "Retrieve audio records from the database.",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page number for pagination",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "name": "resPerPage",
+            "in": "query",
+            "description": "Number of records per page",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "name": "date",
+            "in": "query",
+            "description": "Filter by date (ISO format)",
+            "required": false,
+            "type": "string",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "audios": {
+                  "type": "array"
+                },
+                "totalAudios": {
+                  "type": "integer"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/audio-library/indexPreviousMonth": {
+      "get": {
+        "summary": "Get Audio Library from Previous Month",
+        "tags": ["Audio Library"],
+        "description": "Retrieve audio records from the previous month in the database.",
+        "parameters": [
+          {
+            "name": "resPerPage",
+            "in": "query",
+            "description": "Number of records per page",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "name": "date",
+            "in": "query",
+            "description": "Filter by date (ISO format)",
+            "required": false,
+            "type": "string",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "audios": {
+                  "type": "array"
+                },
+                "totalAudios": {
+                  "type": "integer"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/audio-library/update": {
+      "put": {
+        "summary": "Update Audio Library Entry",
+        "tags": ["Audio Library"],
+        "description": "Update the text of an audio library entry.",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "description": "Audio update parameters",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "audios": {
+                  "type": "array"
+                },
+                "totalAudios": {
+                  "type": "integer"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/audio-library/destroy/{Id}": {
+      "delete": {
+        "summary": "Delete Audio Library Entry",
+        "tags": ["Audio Library"],
+        "description": "Delete an audio library entry by its ID.",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "name": "Id",
+            "in": "path",
+            "description": "ID of the audio library entry to be deleted",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/profile/update": {
+      "put": {
+        "summary": "Update User Profile",
+        "tags": ["Profile"],
+        "description": "Update user profile information including username, bio, and profile picture.",
+        "consumes": ["multipart/form-data"],
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "name": "userName",
+            "in": "formData",
+            "description": "New username for the user",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "bio",
+            "in": "formData",
+            "description": "New bio for the user",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "image",
+            "in": "formData",
+            "description": "New profile picture image file",
+            "required": false,
+            "type": "file"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/profile/updatePassword": {
+      "put": {
+        "summary": "Update Password",
+        "tags": ["Profile"],
+        "description": "Update user's password",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "Body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "oldPassword": {
+                  "type": "string",
+                  "default": "OldPassword123"
+                },
+                "newPassword": {
+                  "type": "string",
+                  "default": "NewPassword456"
+                },
+                "confirmPassword": {
+                  "type": "string",
+                  "default": "NewPassword456"
+                }
+              },
+              "required": ["oldPassword", "newPassword", "confirmPassword"]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Password updated successfully"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "/api/profile/update-user-name": {
+      "put": {
+        "summary": "Update User name",
+        "tags": ["Profile"],
+        "description": "Update Username after login",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "Body", 
+            "required": true,
+            "schema": {
+              "properties": {
+                "userName": {
+                  "type": "string"
+                }
+              },
+              "required": ["userName"]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Username updated successfully"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "/api/profile/destroy": {
+      "post": {
+        "summary": "Delete User Account",
+        "tags": ["Profile"],
+        "description": "Mark user account as deleted",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "Body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "password": {
+                  "type": "string",
+                  "default": "testpassword"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "User account marked as deleted"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        }
+      }
+    },
+    "/api/subscriptions/store": {
+      "post": {
+        "summary": "Create or Update Subscription Package",
+        "tags": ["Subscription"],
+        "description": "Create or update a subscription package",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "Body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "title": {
+                  "type": "string",
+                  "default": "Gold Plan"
+                },
+                "save": {
+                  "type": "string",
+                  "default": "20%"
+                },
+                "plans": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "title": {
+                        "type": "string",
+                        "default": "Monthly Plan"
+                      },
+                      "description": {
+                        "type": "string",
+                        "default": "Basic monthly subscription"
+                      },
+                      "popular": {
+                        "type": "boolean",
+                        "default": false
+                      },
+                      "price": {
+                        "type": "number",
+                        "default": 9.99
+                      },
+                      "priceDetails": {
+                        "type": "string",
+                        "default": "Billed monthly"
+                      }
+                    },
+                    "required": ["title", "description", "price"]
+                  }
+                }
+              },
+              "required": ["title", "save", "plans"]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Subscription package created or updated successfully"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/subscriptions/index": {
+      "get": {
+        "summary": "Get All Subscription Plans",
+        "tags": ["Subscription"],
+        "description": "Retrieve all subscription plans",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved subscription plans"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/subscription/planSubscription": {
+      "post": {
+        "summary": "Plan Subscription",
+        "tags": ["Subscription"],
+        "description": "Purchase a subscription plan",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "Body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "planId": {
+                  "type": "string",
+                  "default": "60734d3edee09d00151e633f"
+                },
+                "payId": {
+                  "type": "string",
+                  "default": "pm_1Kq6WmD8Hw9r6W9kmB4qPefE"
+                }
+              },
+              "required": ["planId"]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Subscription plan purchased successfully"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/photo-generation/store": {
+      "post": {
+        "summary": "Generate AI Photo",
+        "tags": ["PhotoGeneration"],
+        "description": "Generate AI photo based on input message",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string",
+            "required": true,
+            "description": "Authorization token"
+          }
+        ],
+        "requestBody": {
+          "description": "Image generation request",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "prompt": {
+                    "type": "string",
+                    "example": "A beautiful sunset over the mountains."
+                  },
+                  "noOfImages": {
+                    "type": "number",
+                    "example": 1
+                  },
+                  "negativePrompt": {
+                    "type": "string",
+                    "example": "A gloomy day"
+                  },
+                  "interferenceSteps": {
+                    "type": "number",
+                    "example": 3
+                  },
+                  "width": {
+                    "type": "number",
+                    "example": 800
+                  },
+                  "height": {
+                    "type": "number",
+                    "example": 600
+                  },
+                  "guidanceScale": {
+                    "type": "number",
+                    "example": 0.7
+                  },
+                  "enhancePrompt": {
+                    "type": "boolean",
+                    "example": true
+                  },
+                  "isNSFW": {
+                    "type": "boolean",
+                    "example": false
+                  }
+                },
+                "required": [
+                  "prompt",
+                  "noOfImages",
+                  "width",
+                  "height",
+                  "guidanceScale",
+                  "enhancePrompt",
+                  "isNSFW"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "AI photo generated successfully"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/photo-generation/update": {
+      "post": {
+        "summary": "Update Generated AI Photo",
+        "tags": ["PhotoGeneration"],
+        "description": "Update the generated AI photo with a new message",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string",
+            "required": true,
+            "description": "Authorization token"
+          }
+        ],
+        "requestBody": {
+          "description": "Image update request",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "photoGeneratedId": {
+                    "type": "string",
+                    "description": "ID of the generated AI photo chat",
+                    "example": "60734d3edee09d00151e633f"
+                  },
+                  "messageId": {
+                    "type": "string",
+                    "description": "ID of the message to be updated",
+                    "example": "9dc0f1b3-0b1b-49d1-96a2-7e3c7851e63a"
+                  },
+                  "message": {
+                    "type": "string",
+                    "description": "An updated message for the AI photo.",
+                    "example": "An updated message for the AI photo."
+                  }
+                },
+                "required": ["photoGeneratedId", "messageId", "message"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "AI photo updated successfully"
+          }
+        }
+      }
+    },
+    "/api/photo-generation/fetch-queued-photo": {
+      "post": {
+        "summary": "Fetch Queued Photo",
+        "tags": ["PhotoGeneration"],
+        "description": "Fetch the details of a queued photo by its ID",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string",
+            "required": true,
+            "description": "Authorization token"
+          }
+        ],
+        "requestBody": {
+          "description": "Queued photo request",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "imageId": {
+                    "type": "number",
+                    "description": "ID of the image to be fetched"
+                  },
+                  "photoId": {
+                    "type": "string",
+                    "description": "ID of the photo generation chat",
+                    "example": "60734d3edee09d00151e633f"
+                  }
+                },
+                "required": ["imageId", "photoId"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Queued photo retrieved successfully"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/goal/destroy/{goalId}": {
+      "delete": {
+        "summary": "Destroy Goal",
+        "tags": ["Goals Management"],
+        "description": "Delete goal data by goalId.",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "goalId",
+            "type": "string",
+            "description": "ID of the goal to be deleted",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/goal/index": {
+      "get": {
+        "summary": "Get all gals",
+        "tags": ["Goals Management"],
+        "description": "Get all goals listing",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/goal/indexByPagination": {
+      "get": {
+        "summary": "Get All Goals",
+        "tags": ["Goals Management"],
+        "description": "Retrieve all goals records from database",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page number for pagination",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "name": "perPage",
+            "in": "query",
+            "description": "Number of records per page",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "description": "status",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "description": "filter by time",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/goal/stats": {
+      "get": {
+        "summary": "Get Goal Stats",
+        "tags": ["Goals Management"],
+        "description": "Retrieve details of generated goal.",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/goal/store": {
+      "post": {
+        "summary": "Add new goal",
+        "tags": ["Goals Management"],
+        "description": "Create a new goal.",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "goalId",
+            "required": true,
+            "schema": {
+              "id": "12345",
+              "message": "Audio generated successfully",
+              "data": {
+                "_id": "audio123",
+                "message": "Hello, how are you?",
+                "response": "I'm doing well, thank you!",
+                "messageId": "message456"
+              }
+            },
+            "description": "ID of the generated audio chat"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/goal/show": {
+      "post": {
+        "summary": "Show Goal Details",
+        "tags": ["Goals Management"],
+        "description": "Retrieve details of created goal.",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "name": "device",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "goalId": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/goal/update": {
+      "put": {
+        "summary": "Show Audio Generation Details",
+        "tags": ["Audio Generation"],
+        "description": "Retrieve details of generated audio.",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "goalId",
+            "required": true,
+            "schema": {
+              "goalId": "12345",
+              "name":"tes",
+              "dueOnDate":"test",
+              "notificationsReminder":"test",
+              "status":"true",
+              "keyPoint1":"test",
+              "keyPoint2":"test",
+              "keyPoint3":"test"
+            },
+            "description": "id of goal needs to be updated"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/device/index": {
+      "get": {
+        "summary": "Get Logged-In Devices",
+        "tags": ["Devices"],
+        "description": "Retrieve a list of logged-in devices.",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string",
+            "required": true,
+            "description": "Authorization token"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/device/store": {
+      "post": {
+        "summary": "Store Logged-In Device",
+        "tags": ["Devices"],
+        "description": "Store information about a logged-in device.",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string",
+            "required": true,
+            "description": "Authorization token"
+          },
+          {
+            "name": "device",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "os": {
+                  "type": "string"
+                },
+                "browserName": {
+                  "type": "string"
+                },
+                "browserVersion": {
+                  "type": "string"
+                },
+                "ipAddress": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Device stored successfully"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/device/destroy/{deviceId}": {
+      "delete": {
+        "summary": "Delete Logged-In Device",
+        "tags": ["Devices"],
+        "description": "Delete a logged-in device by ID.",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string",
+            "required": true,
+            "description": "Authorization token"
+          },
+          {
+            "name": "deviceId",
+            "in": "path",
+            "type": "string",
+            "required": true,
+            "description": "ID of the device to delete"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Device deleted successfully"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/device/destroy-all": {
+      "delete": {
+        "summary": "Delete All Logged-In Devices",
+        "tags": ["Devices"],
+        "description": "Delete all logged-in devices for the user.",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string",
+            "required": true,
+            "description": "Authorization token"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "All devices deleted successfully"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/image-library/index": {
+      "get": {
+        "summary": "Get images from the library",
+        "tags": ["Image Library"],
+        "description": "Retrieve images from the image library.",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string",
+            "required": true,
+            "description": "Authorization token"
+          },
+          {
+            "name": "date",
+            "in": "query",
+            "type": "string",
+            "required": false,
+            "description": "Filter images by date (optional)"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "type": "integer",
+            "required": false,
+            "description": "Page number (optional)"
+          },
+          {
+            "name": "resPerPage",
+            "in": "query",
+            "type": "integer",
+            "required": false,
+            "description": "Results per page (optional)"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/image-library/update": {
+      "post": {
+        "summary": "Update Image Details",
+        "tags": ["Image Library"],
+        "description": "Update the details of an image in the library.",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string",
+            "required": true,
+            "description": "Authorization token"
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "imageId": {
+                  "type": "string",
+                  "example": "12121212",
+                  "description": "ImageId required to update that image"
+                },
+                "prompt": {
+                  "type": "string",
+                  "example": "Battle of crusades",
+                  "description": "Updated prompt of the image with new properties"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Image details updated successfully"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/image-library/destroy/{Id}": {
+      "delete": {
+        "summary": "Delete an image from the library",
+        "tags": ["Image Library"],
+        "description": "Delete an image from the image library by ID.",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string",
+            "required": true,
+            "description": "Authorization token"
+          },
+          {
+            "name": "Id",
+            "in": "path",
+            "type": "string",
+            "required": true,
+            "description": "ID of the image to delete"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Image deleted successfully"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/super-user/store": {
+      "post": {
+        "summary": "Store super user request",
+        "tags": ["Super User"],
+        "description": "store super users request",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string",
+            "required": true,
+            "description": "Authorization token"
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "description": {
+                  "type": "string",
+                  "description": "please describe why you require a super user"
+                },
+                "website": {
+                  "type": "string",
+                  "description": "your website link for reference",
+                  "example": "https://example.com"
+                },
+                "socialInfo": {
+                  "type": "object",
+                  "properties": {
+                    "userName": {
+                      "type": "string",
+                      "description": "user name of user"
+                    },
+                    "platform": {
+                      "type": "string",
+                      "description": "platform of the user",
+                      "example": "https://example.com"
+                    },
+                    "link": {
+                      "type": "string",
+                      "description": "platform of the user",
+                      "example": "https://example.com"
+                    }
+                  }
+                }
+              },
+              "required": ["description", "website", "socialInfo"]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "super user request created successfully"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/super-user/index": {
+      "get": {
+        "summary": "Get ",
+        "tags": ["Super User"],
+        "description": "Get all created super users requests",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string",
+            "required": true,
+            "description": "Authorization token"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/super-user/update": {
+      "post": {
+        "summary": "Update super user request",
+        "tags": ["Super User"],
+        "description": "update super users request",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string",
+            "required": true,
+            "description": "Authorization token"
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "userToApprove": {
+                  "type": "string",
+                  "description": "please enter user id of which user request you wants to approve"
+                },
+                "status": {
+                  "type": "string",
+                  "description": "status to wants to update pending/approved/rejected",
+                  "example": "approved"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "super user request created successfully"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/notification/index": {
+      "get": {
+        "summary": "Get All Notifications",
+        "tags": ["Notifications"],
+        "description": "Get all user notifications",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string",
+            "required": true,
+            "description": "Authorization token"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "User's notifications fetched successfully"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/notification/update": {
+      "post": {
+        "summary": "Update User Notifications List",
+        "tags": ["Notifications"],
+        "description": "Update User Notifications List",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string",
+            "required": true,
+            "description": "Authorization token"
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "notificationsList": {
+                  "type": "boolean",
+                  "description": "Only true, false or array values are accepted. Like ['Goal_NOTIFICATIONS', 'PROFILE_NOTIFICATIONS']"
+                }
+              },
+              "required": ["notificationsList"]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Uer's Notifications List updated successfully"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/notification/send-email": {
+      "post": {
+        "summary": "Send mail to user.",
+        "tags": ["Send Email"],
+        "description": "Use this to send mail to user",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string",
+            "required": true,
+            "description": "Authorization token"
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "to": {
+                  "type": "string",
+                  "description": "",
+                  "example":"kamransadiq772@gmail.com"
+                },
+                "type": {
+                  "type": "string",
+                  "description": "",
+                  "example":"OTP_MAIL"
+                },
+                "data": {
+                  "type": "object",
+                  "description": "",
+                  "example":{}
+                }
+              },
+              "required": ["data","to","type"]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Uer's Notifications List updated successfully"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/debate/index": {
+      "get": {
+        "summary": "Get All Debates",
+        "tags": ["Debate"],
+        "description": "Retrieve all debate records from database",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page number for pagination",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "name": "resPerPage",
+            "in": "query",
+            "description": "Number of records per page",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "name": "search",
+            "in": "query",
+            "description": "Search",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "description": "filter by time",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/debate/show/{debateId}": {
+      "get": {
+        "summary": "Get Debate By Id",
+        "tags": ["Debate"],
+        "description": "Get Debates complete details by ID",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string",
+            "required": true,
+            "description": "Authorization token"
+          },
+          {
+            "name": "debateId",
+            "in": "path",
+            "type": "string",
+            "required": true,
+            "description": "ID of the debate to get detail"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Data fetched successfully"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/debate/store": {
+      "post": {
+        "summary": "Debate Module",
+        "tags": ["Debate"],
+        "description": "Initiate a debate by inviting multiple users",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string",
+            "required": true,
+            "description": "Authorization token"
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "title": {
+                  "type": "string",
+                  "example":"Debate V1"
+                },
+                "invitedUsers": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "example": [
+                    "6554795dbfc184b79cc49778",
+                    "65547a2abfc184b79cc498e6",
+                    "65549ea21c2953c4fd583f98"
+                  ]
+                }
+              },
+              "required": ["title", "invitedUsers"]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Debate created successfully."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/debate/update": {
+      "post": {
+        "summary": "Debate Module",
+        "tags": ["Debate"],
+        "description": "Add new message into debate module",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string",
+            "required": true,
+            "description": "Authorization token"
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "debateId": {
+                  "type": "string",
+                  "description": "",
+                  "example": "6548a7f8c28be3eb01a9e3fc"
+                },
+                "message": {
+                  "type": "string",
+                  "description": "",
+                  "example":"@Ali how are you"
+                },
+                "mentionedUsers": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "example": ["65549ea21c2953c4fd583f98"]
+                },
+                "isBotMentioned": {
+                  "type":"boolean",
+                  "example": true
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Uer's Notifications List updated successfully"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/debate/update-message": {
+      "post": {
+        "summary": "Debate Module",
+        "tags": ["Debate"],
+        "description": "Add new message into debate module",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string",
+            "required": true,
+            "description": "Authorization token"
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "debateId": {
+                  "type": "string",
+                  "description": "",
+                  "example": "6548a7f8c28be3eb01a9e3fc"
+                },
+                "messageId": {
+                  "type": "string",
+                  "description": "",
+                  "example": "6548a7f8c28be3eb01a9e3fc"
+                },
+                "message": {
+                  "type": "string",
+                  "description": "",
+                  "example":"@Ali how are you"
+                },
+                "mentionedUsers": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "example": ["65549ea21c2953c4fd583f98"]
+                },
+                "isBotMentioned": {
+                  "type":"boolean",
+                  "example": true
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Uer's Notifications List updated successfully"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/debate/update-bot-message": {
+      "post": {
+        "summary": "Debate Module",
+        "tags": ["Debate"],
+        "description": "Add new message into debate module",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string",
+            "required": true,
+            "description": "Authorization token"
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "debateId": {
+                  "type": "string",
+                  "description": "",
+                  "example": "6548a7f8c28be3eb01a9e3fc"
+                },
+                "messageId": {
+                  "type": "string",
+                  "description": "",
+                  "example": "6548a7f8c28be3eb01a9e3fc"
+                },
+                "responseTo": {
+                  "type": "string",
+                  "description": "",
+                  "example": "6548a7f8c28be3eb01a9e3fc"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Uer's Notifications List updated successfully"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    }
+  }
+}

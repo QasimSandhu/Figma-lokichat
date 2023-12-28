@@ -1,0 +1,1 @@
+{"version":3,"file":"debate.js","sourceRoot":"","sources":["../../../src/lib/constants/debate.ts"],"names":[],"mappings":";;;AAAa,QAAA,iBAAiB,GAAG,mBAAmB,CAAC;AACxC,QAAA,YAAY,GAAG,cAAc,CAAC;AAC9B,QAAA,kBAAkB,GAAG,oBAAoB,CAAC;AAC1C,QAAA,qBAAqB,GAAG,uBAAuB,CAAC;AAEhD,QAAA,aAAa,GAAG;IACzB,mBAAmB,EAAE,qBAAqB;IAC1C,+BAA+B,EAAE,iCAAiC;IAClE,kCAAkC,EAAE,oCAAoC;CAC3E,CAAA"}

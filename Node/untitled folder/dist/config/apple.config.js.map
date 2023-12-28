@@ -1,0 +1,1 @@
+{"version":3,"file":"apple.config.js","sourceRoot":"","sources":["../../src/config/apple.config.ts"],"names":[],"mappings":";;;;;AAAA,sDAA8B;AAE9B,kBAAe;IACX,WAAW,EAAE,gBAAM,CAAC,SAAS,CAAC,QAAQ;IACtC,SAAS,EAAE,gBAAM,CAAC,SAAS,CAAC,MAAM;IAClC,QAAQ,EAAE,gBAAM,CAAC,SAAS,CAAC,KAAK;IAChC,OAAO,EAAE,YAAY;CACtB,CAAC"}
