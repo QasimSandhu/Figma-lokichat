@@ -7,6 +7,19 @@
     border: none;
 }
 
+.bg-color-white {
+    background-color: #ffffff;
+}
+
+.border-color-lightGray {
+    border-color: #D9D9D9 !important;
+}
+
+.bg-color-lightGray,
+.bg-color-lightGray:focus {
+    background-color: #D9D9D9;
+}
+
 .signup-input-field {
     font-size: small;
     background-color: #D9D9D9;
@@ -18,7 +31,12 @@
     background-color: lightskyblue;
 }
 
-.signup-check-input-field{
+.signup-check-input-field {
     box-shadow: unset;
     border-color: #D9D9D9;
+}
+
+input.box-shadow-inherit,
+input.box-shadow-inherit:focus {
+    box-shadow: inherit !important;
 }

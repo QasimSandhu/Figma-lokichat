@@ -13,6 +13,7 @@ import 'react-datepicker/dist/react-datepicker.css';
 import UpdatesFAQ from './components/Dashboard/UpdatesFAQ';
 import GoalManagement from './components/Dashboard/GoalManagement';
 import ManageSubscription from './components/Dashboard/ManageSubscription';
+import RegisterOTP from './components/Authentication/RegisterOTP';
 
 
 
@@ -25,6 +26,7 @@ function App() {
                 <Route path='/signin' element={<Signin />} />
                 <Route path='/forgot_password' element={<ForgotPassword />} />
                 <Route path='/confirm_otp' element={<ConfirmOPT />} />
+                <Route path='/register_otp' element={<RegisterOTP />} />
                 <Route path='/confirm_new_password' element={<NewPassword />} />
                 <Route path='/chat' element={<Chat />} />
                 <Route path='/audio-library' element={<AudioLibrary />} />
