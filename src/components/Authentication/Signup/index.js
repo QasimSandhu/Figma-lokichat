@@ -7,9 +7,14 @@ import { GoogleOAuthProvider, GoogleLogin } from '@react-oauth/google';
 import AppleLogin from 'react-apple-login';
 import './style.css';
 import axios from 'axios';
+import { useDispatch } from 'react-redux';
+import { SIGNUP_USER_ACCOUNT } from '../../redux/actions/action';
 
 
 const Signup = () => {
+
+    // Dispatching user Data in the redux store
+    const dispatch = useDispatch();
 
     // Navigate
     const navigate = useNavigate();
@@ -37,10 +42,11 @@ const Signup = () => {
             };
 
             const response = await axios.post('http://localhost:3003/api/auth/register', userData);
-
-            localStorage.setItem('Email', response.data.data.email);
-
             if (response.status === 200) {
+                // Dispatch the SIGNUP_USER_ACCOUNT action with the user data
+                dispatch(SIGNUP_USER_ACCOUNT(response.data.data));
+
+                // Navigate to the Register OTP page
                 navigate("/register_otp");
             }
 
@@ -92,7 +98,7 @@ const Signup = () => {
                                     <div className='col-lg-5 ms-2' style={{ flex: '1', borderBottom: '2px solid #b3b3b3' }}></div>
                                 </div>
                             </div>
-                            <Form>
+                            <Form onSubmit={handleRegister}>
                                 <Form.Group controlId="formBasicName">
                                     <div className="input-group mt-3">
                                         <span className="input-group-text border-end-0 bg-color-lightGray">
@@ -125,7 +131,7 @@ const Signup = () => {
                                     </div>
                                 </Form.Group>
 
-                                <Button onClick={handleRegister} className='mt-5 col-lg-12 bg-color-lightskyblue' type="button">Create my account</Button>
+                                <Button className='mt-5 col-lg-12 bg-color-lightskyblue' type="submit">Create my account</Button>
                             </Form>
                         </div>
                     </Col>

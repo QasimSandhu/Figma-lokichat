@@ -1,3 +1,30 @@
 .nsm7Bb-HzV7m-LgbsSe.hJDwNd-SxQuSe.i5vt6e-Ia7Qfc.uaxL4e-RbRzK {
     border: none;
 }
+
+.bg-color-white {
+    background-color: #ffffff;
+}
+
+.bg-color-d9,
+.bg-color-d9:focus {
+    background-color: #d9d9d9;
+}
+
+.box-shadow-unset,
+.box-shadow-unset:focus {
+    box-shadow: unset;
+}
+
+.border-color-d9,
+.border-color-d9:focus {
+    border-color: #d9d9d9;
+}
+
+.color-d9 {
+    color: #d9d9d9;
+}
+
+.bg-color-lightskyblue {
+    background-color: lightskyblue;
+}
